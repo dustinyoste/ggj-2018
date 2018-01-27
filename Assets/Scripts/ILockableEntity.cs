@@ -4,6 +4,5 @@ using UnityEngine;
 
 public interface ILockableEntity
 {
-    bool Unlock();
-    bool IsLocked { get; }
+    void Unlock();
 }
