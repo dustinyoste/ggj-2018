@@ -38,6 +38,7 @@ public class OnLockedCollider : MonoBehaviour
 			actionHandler.StartInteract();
 		}
 
+        player.TouchingObject(this.block);
 	}
 
 	protected void OnTriggerExit2D(Collider2D coll)
@@ -59,5 +60,7 @@ public class OnLockedCollider : MonoBehaviour
 		if (actionHandler) {
 			actionHandler.StopInteract();
 		}
+
+        player.TouchingObject(null);
 	}
 }
