@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets._2D;
 
 public class PlayerInGameUI : MonoBehaviour
 {
+	public PlatformerCharacter2D character;
 	public bool playerHasInput = true;
 	public bool isIdle = true;
 	public CanvasGroup playerControls;
@@ -14,23 +16,20 @@ public class PlayerInGameUI : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
+		Debug.Assert(character != null, "character not set");
+
 		playerTimer = new SimpleTimer(showControlsDelay);
 
 		playerTimer.TimerEndedEvent += PlayerTimeEvent;
+		character.PlayerIdleEvent += Character_PlayerIdleEvent;
 
-		ToggleCanvasGroup(playerControls, false);
+		ToggleCanvasGroup(playerControls, true);
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
 		playerTimer.CheckUpdate();
-
-		if (!playerHasInput) {
-			OnPlayerIdle();
-		} else {
-			OnPlayerMove();
-		}
 	}
 
 	void OnPlayerIdle()
@@ -52,6 +51,16 @@ public class PlayerInGameUI : MonoBehaviour
 		playerHasInput = true;
 		ToggleCanvasGroup(playerControls, false);
 		isIdle = false;
+	}
+
+	void Character_PlayerIdleEvent(bool isIdling)
+	{
+		Debug.Log("Character_PlayerIdleEvent");
+		if (isIdling) {
+			OnPlayerIdle();
+		} else {
+			OnPlayerMove();
+		}
 	}
 
 	void PlayerTimeEvent()
