@@ -40,7 +40,6 @@ GameObject:
   - component: {fileID: 50865199103959884}
   - component: {fileID: 114097128978873526}
   - component: {fileID: 114755407504372322}
-  - component: {fileID: 114960418893503952}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -178,8 +177,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: 1
-  jump: Jump
-  horizontal: Horizontal
 --- !u!114 &114755407504372322
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -198,25 +195,6 @@ MonoBehaviour:
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 256
-  m_Grounded: 0
---- !u!114 &114960418893503952
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1173051146634548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac892b536c79542f3a89fa50ba5da23b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MaxSpeed: 10
-  m_JumpForce: 400
-  m_CrouchSpeed: 0.36
-  m_AirControl: 1
-  m_WhatIsGround:
-    serializedVersion: 2
-    m_Bits: 0
   m_Grounded: 0
 --- !u!212 &212426557242916524
 SpriteRenderer:
