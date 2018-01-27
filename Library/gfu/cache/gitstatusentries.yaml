@@ -1,0 +1,113 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 61
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1038538317, guid: 66da555d9ce961d448d026ba0354ee79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lastUpdatedAtString: 2018-01-26T19:09:56.6225900-06:00
+  lastVerifiedAtString: 2018-01-26T19:09:56.6225900-06:00
+  initializedAtString: 2018-01-26T19:09:56.6225900-06:00
+  entries:
+  - path: Library/CurrentLayout.dwlt
+    fullPath: /Users/zbarnes/Global Game Jam 2018/Library/CurrentLayout.dwlt
+    projectPath: Library/CurrentLayout.dwlt
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Library/EditorInstance.json
+    fullPath: /Users/zbarnes/Global Game Jam 2018/Library/EditorInstance.json
+    projectPath: Library/EditorInstance.json
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Library/assetDatabase3
+    fullPath: /Users/zbarnes/Global Game Jam 2018/Library/assetDatabase3
+    projectPath: Library/assetDatabase3
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Library/gfu/cache/gituser.yaml
+    fullPath: /Users/zbarnes/Global Game Jam 2018/Library/gfu/cache/gituser.yaml
+    projectPath: Library/gfu/cache/gituser.yaml
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Library/metadata/00/00000000000000004000000000000000
+    fullPath: /Users/zbarnes/Global Game Jam 2018/Library/metadata/00/00000000000000004000000000000000
+    projectPath: Library/metadata/00/00000000000000004000000000000000
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Library/shadercompiler-UnityShaderCompiler0.log
+    fullPath: /Users/zbarnes/Global Game Jam 2018/Library/shadercompiler-UnityShaderCompiler0.log
+    projectPath: Library/shadercompiler-UnityShaderCompiler0.log
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: ProjectSettings/ProjectSettings.asset
+    fullPath: /Users/zbarnes/Global Game Jam 2018/ProjectSettings/ProjectSettings.asset
+    projectPath: ProjectSettings/ProjectSettings.asset
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Library/LastSceneManagerSetup.txt
+    fullPath: /Users/zbarnes/Global Game Jam 2018/Library/LastSceneManagerSetup.txt
+    projectPath: Library/LastSceneManagerSetup.txt
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Library/ProjectSettings.asset
+    fullPath: /Users/zbarnes/Global Game Jam 2018/Library/ProjectSettings.asset
+    projectPath: Library/ProjectSettings.asset
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Library/expandedItems
+    fullPath: /Users/zbarnes/Global Game Jam 2018/Library/expandedItems
+    projectPath: Library/expandedItems
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Library/gfu/cache/branches.yaml
+    fullPath: /Users/zbarnes/Global Game Jam 2018/Library/gfu/cache/branches.yaml
+    projectPath: Library/gfu/cache/branches.yaml
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Library/gfu/cache/gitlocks.yaml
+    fullPath: /Users/zbarnes/Global Game Jam 2018/Library/gfu/cache/gitlocks.yaml
+    projectPath: Library/gfu/cache/gitlocks.yaml
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Library/gfu/cache/gitlog.yaml
+    fullPath: /Users/zbarnes/Global Game Jam 2018/Library/gfu/cache/gitlog.yaml
+    projectPath: Library/gfu/cache/gitlog.yaml
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Library/gfu/cache/gitstatusentries.yaml
+    fullPath: /Users/zbarnes/Global Game Jam 2018/Library/gfu/cache/gitstatusentries.yaml
+    projectPath: Library/gfu/cache/gitstatusentries.yaml
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Library/gfu/cache/gittrackingstatus.yaml
+    fullPath: /Users/zbarnes/Global Game Jam 2018/Library/gfu/cache/gittrackingstatus.yaml
+    projectPath: Library/gfu/cache/gittrackingstatus.yaml
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Library/gfu/cache/repoinfo.yaml
+    fullPath: /Users/zbarnes/Global Game Jam 2018/Library/gfu/cache/repoinfo.yaml
+    projectPath: Library/gfu/cache/repoinfo.yaml
+    originalPath: 
+    status: 1
+    staged: 0
