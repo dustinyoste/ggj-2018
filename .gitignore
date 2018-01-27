@@ -36,3 +36,9 @@ sysinfo.txt
 
 #Jetbrains
 .idea/
+
+# ========================= #
+# Vim generated #
+# ========================= #
+*.swp
+*.swo
