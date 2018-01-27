@@ -10,12 +10,15 @@ public class BlockScript : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        if (velocity.magnitude > 0.00 && !BeingMoved)
+        if (Buddy != null)
         {
-            Buddy.GetComponent<Rigidbody2D>().velocity = velocity;
-            Buddy.GetComponent<BlockScript>().BeingMoved = true;
-        } else {
-            Buddy.GetComponent<BlockScript>().BeingMoved = false;
+            if (velocity.magnitude > 0.00 && !BeingMoved)
+            {
+                Buddy.GetComponent<Rigidbody2D>().velocity = velocity;
+                Buddy.GetComponent<BlockScript>().BeingMoved = true;
+            } else {
+                Buddy.GetComponent<BlockScript>().BeingMoved = false;
+            }     
         }
     }
 

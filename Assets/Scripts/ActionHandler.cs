@@ -9,9 +9,10 @@ public class ActionHandler : MonoBehaviour
 	public GameObject[] ActionList;
 	public float BufferTime;
 	public float resetTime;
+	public LockedComponent LockedComponent;
 	
 	private int _actionListIndex = 0;
-	private bool _isOnAction = false;
+	private bool _canInteract = false;
 	private bool _shouldReset = false;
 	private float _resetTimer = 0;
 	private IAction _currentAction;
@@ -21,11 +22,12 @@ public class ActionHandler : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		_defaultColor = GetComponent<Renderer>().material.GetColor("_Color");
+		_defaultColor = GetComponent<SpriteRenderer>().color;
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
 		if (_shouldReset)
 		{
 			_resetTimer += Time.deltaTime;
@@ -35,21 +37,26 @@ public class ActionHandler : MonoBehaviour
 				ResetActions();
 			}
 		}
-		else
+		else if (_canInteract)
 		{
 			if (Input.GetKeyDown(KeyCode.LeftShift))
 			{
 				StartAction();
-			} else if (Input.GetKeyUp(KeyCode.LeftShift) && _currentAction != null)
+			}
+			else if (Input.GetKeyUp(KeyCode.LeftShift) && _currentAction != null)
 			{
 				_currentAction.EndAction();
 			}
-
-			if (_currentAction != null && _currentAction.HasRun)
-			{
-				if (_currentAction.IsSuccess) GoToNextAction();
-				else FailAction();
-			}
+		}
+		else if(!_canInteract && _currentAction != null)
+		{
+			_currentAction.EndAction();	
+		}
+		
+		if (_currentAction != null && _currentAction.HasRun)
+		{
+			if (_currentAction.IsSuccess) GoToNextAction();
+			else FailAction();
 		}
 	}
 
@@ -78,12 +85,12 @@ public class ActionHandler : MonoBehaviour
 			ActionList[i].GetComponent<IAction>().Reset();
 		}
 		
-		GetComponent<Renderer>().material.SetColor("_Color", _defaultColor);
+		GetComponent<SpriteRenderer>().color = _defaultColor;
 	}
 
 	void PassAction()
 	{
-		GetComponent<Renderer>().material.SetColor("_Color", Color.green);
+		GetComponent<SpriteRenderer>().color = Color.green;
 	}
 
 	void FailAction()
@@ -92,6 +99,18 @@ public class ActionHandler : MonoBehaviour
 		_resetTimer = 0;
 		_currentAction = null;
 		_shouldReset = true;
-		GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+		GetComponent<SpriteRenderer>().color = Color.red;
+	}
+
+	public void StartInteract()
+	{
+		_canInteract = true;
+		GetComponent<SpriteRenderer>().color = Color.yellow;
+	}
+
+	public void StopInteract()
+	{
+		_canInteract = false;
+		GetComponent<SpriteRenderer>().color = _defaultColor;
 	}
 }

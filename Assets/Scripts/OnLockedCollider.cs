@@ -11,6 +11,7 @@ public class OnLockedCollider : MonoBehaviour
 	public event ShowLockedHandler ShowLockedEvent;
 
 	public LockedComponent lockedObject;
+	public ActionHandler actionHandler;
 
 	protected void OnTriggerEnter2D(Collider2D coll)
 	{
@@ -28,6 +29,8 @@ public class OnLockedCollider : MonoBehaviour
 		}
 
 		// Allow interactablility
+		actionHandler.StartInteract();
+		
 	}
 
 	protected void OnTriggerExit2D(Collider2D coll)
@@ -44,7 +47,8 @@ public class OnLockedCollider : MonoBehaviour
 		if (invokeEvent != null) {
 			invokeEvent(player, false);
 		}
-
+		
 		// Allow interactablility
+		actionHandler.StopInteract();
 	}
 }
