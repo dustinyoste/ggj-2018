@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using NUnit.Framework.Constraints;
 using UnityEngine;
 using UnityStandardAssets._2D;
 
 public class ActionHandler : MonoBehaviour
 {
 	public GameObject[] ActionList;
+	public GameObject[] ActionOnUnlock;
 	public float BufferTime;
 	public float resetTime;
 	public LockedComponent LockedComponent;
@@ -91,6 +93,10 @@ public class ActionHandler : MonoBehaviour
 	void PassAction()
 	{
 		GetComponent<SpriteRenderer>().color = Color.green;
+		for (int i = 0; i < ActionOnUnlock.Length; i++)
+		{
+			ActionOnUnlock[i].GetComponent<IOnUnlock>().OnUnlock();
+		}
 	}
 
 	void FailAction()
