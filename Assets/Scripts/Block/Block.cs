@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Block : MonoBehaviour, ILockableEntity
+public class Block : MonoBehaviour
 {
-	public bool IsLocked;
+	public bool IsLocked { get; private set; }
 
 	// Use this for initialization
 	void Start ()
@@ -18,14 +18,5 @@ public class Block : MonoBehaviour, ILockableEntity
 	// Update is called once per frame
 	void Update () {
 	
-	}
-
-	public void Unlock()
-	{
-		IsLocked = false;
-		
-		var renderer = GetComponent<Renderer>();
-		renderer.material.SetColor("_Color", Color.green);
-
 	}
 }
