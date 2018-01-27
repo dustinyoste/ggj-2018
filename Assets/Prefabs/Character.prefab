@@ -35,11 +35,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4790558600991498}
   - component: {fileID: 212426557242916524}
-  - component: {fileID: 114464430234204438}
   - component: {fileID: 61083555572225342}
-  - component: {fileID: 114266384686890466}
   - component: {fileID: 95541274730749492}
   - component: {fileID: 50865199103959884}
+  - component: {fileID: 114097128978873526}
+  - component: {fileID: 114755407504372322}
+  - component: {fileID: 114960418893503952}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -95,7 +96,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1173051146634548}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.925269, y: 1.9750903, z: 0}
+  m_LocalPosition: {x: -4.32, y: 1.89, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4588836264147580}
@@ -122,7 +123,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &61083555572225342
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -165,7 +166,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114266384686890466
+--- !u!114 &114097128978873526
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -173,13 +174,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1173051146634548}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3d7b34a3bb2d4e4b926e7e729d3d410, type: 3}
+  m_Script: {fileID: 11500000, guid: 20bd242d2cc874c9cb5a3076be146a64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: 1
   jump: Jump
   horizontal: Horizontal
---- !u!114 &114464430234204438
+--- !u!114 &114755407504372322
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -187,16 +188,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 1173051146634548}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d08f91df3bd212f429df17f53ce2f364, type: 3}
+  m_Script: {fileID: 11500000, guid: ac892b536c79542f3a89fa50ba5da23b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MaxSpeed: 10
   m_JumpForce: 400
   m_CrouchSpeed: 0.36
-  m_AirControl: 0
+  m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 256
+  m_Grounded: 0
+--- !u!114 &114960418893503952
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1173051146634548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac892b536c79542f3a89fa50ba5da23b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MaxSpeed: 10
+  m_JumpForce: 400
+  m_CrouchSpeed: 0.36
+  m_AirControl: 1
+  m_WhatIsGround:
+    serializedVersion: 2
+    m_Bits: 0
   m_Grounded: 0
 --- !u!212 &212426557242916524
 SpriteRenderer:
