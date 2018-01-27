@@ -37,9 +37,9 @@ GameObject:
   - component: {fileID: 212426557242916524}
   - component: {fileID: 114464430234204438}
   - component: {fileID: 61083555572225342}
-  - component: {fileID: 50809843012424760}
   - component: {fileID: 114266384686890466}
   - component: {fileID: 95541274730749492}
+  - component: {fileID: 50865199103959884}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -95,7 +95,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1173051146634548}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.22, y: -0.112, z: 0}
+  m_LocalPosition: {x: -4.32, y: 1.89, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4588836264147580}
@@ -103,7 +103,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50809843012424760
+--- !u!50 &50865199103959884
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
@@ -135,7 +135,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.25}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -176,6 +176,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3d7b34a3bb2d4e4b926e7e729d3d410, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: 1
+  jump: Jump
+  horizontal: Horizontal
 --- !u!114 &114464430234204438
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -193,7 +196,8 @@ MonoBehaviour:
   m_AirControl: 0
   m_WhatIsGround:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
+  m_Grounded: 0
 --- !u!212 &212426557242916524
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -229,7 +233,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4929f8427d1d44133867093d53f2c4b1, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.52205884, g: 0.5253549, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
