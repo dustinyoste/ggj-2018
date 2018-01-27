@@ -19,13 +19,11 @@ public class Action : MonoBehaviour, IAction
 
     void Start()
     {
-        HasRun = false;
-        IsSuccess = false;
-        _isRunning = false;
-        ActionTime = 0;
         _defaultColor = GetComponent<Renderer>().sharedMaterial.GetColor("_Color");
         ProgressTransform = transform.Find("ProgressContainer").gameObject.transform;
         DefaultProgressColor = ProgressTransform.Find("Progress").GetComponent<Renderer>().material.GetColor("_Color");
+        
+        ResetFlags();
         ResetProgress();
     }
 
@@ -85,7 +83,16 @@ public class Action : MonoBehaviour, IAction
     {
         var renderer = GetComponent<Renderer>();
         renderer.material.SetColor("_Color", _defaultColor);
-        Start();
+        ResetFlags();
+        ResetProgress();
+    }
+    
+    void ResetFlags()
+    {
+        HasRun = false;
+        IsSuccess = false;
+        _isRunning = false;
+        ActionTime = 0;
     }
 
     void HandleSuccess()

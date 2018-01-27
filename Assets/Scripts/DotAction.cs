@@ -21,6 +21,7 @@ public class DotAction : Action
 
     protected override void ResetProgress()
     {
+        _isValidTime = false;
         ProgressTransform.localScale = new Vector2(0, 0);
         ProgressTransform.Find("Progress").GetComponent<Renderer>().material.SetColor("_Color", DefaultProgressColor);
     }
