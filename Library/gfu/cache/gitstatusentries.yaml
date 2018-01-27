@@ -11,31 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 1038538317, guid: 66da555d9ce961d448d026ba0354ee79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastUpdatedAtString: 2018-01-26T19:10:28.2620950-06:00
-  lastVerifiedAtString: 2018-01-26T19:10:29.3257960-06:00
+  lastUpdatedAtString: 2018-01-26T19:10:34.6539650-06:00
+  lastVerifiedAtString: 2018-01-26T19:10:34.6703730-06:00
   initializedAtString: 2018-01-26T19:09:56.6225900-06:00
-  entries:
-  - path: Library/gfu/cache/branches.yaml
-    fullPath: /Users/zbarnes/Global Game Jam 2018/Library/gfu/cache/branches.yaml
-    projectPath: Library/gfu/cache/branches.yaml
-    originalPath: 
-    status: 3
-    staged: 0
-  - path: Library/gfu/cache/gitlog.yaml
-    fullPath: /Users/zbarnes/Global Game Jam 2018/Library/gfu/cache/gitlog.yaml
-    projectPath: Library/gfu/cache/gitlog.yaml
-    originalPath: 
-    status: 3
-    staged: 0
-  - path: Library/gfu/cache/gitstatusentries.yaml
-    fullPath: /Users/zbarnes/Global Game Jam 2018/Library/gfu/cache/gitstatusentries.yaml
-    projectPath: Library/gfu/cache/gitstatusentries.yaml
-    originalPath: 
-    status: 3
-    staged: 0
-  - path: Library/gfu/cache/gittrackingstatus.yaml
-    fullPath: /Users/zbarnes/Global Game Jam 2018/Library/gfu/cache/gittrackingstatus.yaml
-    projectPath: Library/gfu/cache/gittrackingstatus.yaml
-    originalPath: 
-    status: 3
-    staged: 0
+  entries: []

@@ -11,10 +11,46 @@ MonoBehaviour:
   m_Script: {fileID: -530159753, guid: 66da555d9ce961d448d026ba0354ee79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastUpdatedAtString: 2018-01-26T19:10:19.3376610-06:00
-  lastVerifiedAtString: 2018-01-26T19:10:19.3376610-06:00
+  lastUpdatedAtString: 2018-01-26T19:10:35.7173740-06:00
+  lastVerifiedAtString: 2018-01-26T19:10:35.7173740-06:00
   initializedAtString: 2018-01-26T19:10:19.3298990-06:00
   log:
+  - commitID: 546425a991c8759993a8c5bfeb8c5cf2d828876d
+    mergeA: 
+    mergeB: 
+    authorName: Zach Barnes
+    authorEmail: Zacharias3690@gmail.com
+    commitEmail: Zacharias3690@gmail.com
+    commitName: Zach Barnes
+    summary: initial commit
+    description: initial commit
+    timeString: 2018-01-26T19:10:34.0000000-06:00
+    commitTimeString: 2018-01-26T19:10:34.0000000-06:00
+    changes:
+    - path: Library/gfu/cache/branches.yaml
+      fullPath: /Users/zbarnes/Global Game Jam 2018/Library/gfu/cache/branches.yaml
+      projectPath: Library/gfu/cache/branches.yaml
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/gfu/cache/gitlog.yaml
+      fullPath: /Users/zbarnes/Global Game Jam 2018/Library/gfu/cache/gitlog.yaml
+      projectPath: Library/gfu/cache/gitlog.yaml
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/gfu/cache/gitstatusentries.yaml
+      fullPath: /Users/zbarnes/Global Game Jam 2018/Library/gfu/cache/gitstatusentries.yaml
+      projectPath: Library/gfu/cache/gitstatusentries.yaml
+      originalPath: 
+      status: 3
+      staged: 0
+    - path: Library/gfu/cache/gittrackingstatus.yaml
+      fullPath: /Users/zbarnes/Global Game Jam 2018/Library/gfu/cache/gittrackingstatus.yaml
+      projectPath: Library/gfu/cache/gittrackingstatus.yaml
+      originalPath: 
+      status: 3
+      staged: 0
   - commitID: 776e75e110102d72a1dfd669593a38602a8fecd3
     mergeA: 
     mergeB: 
