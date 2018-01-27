@@ -46,7 +46,6 @@ public class PlayerInGameUI : MonoBehaviour
 	{
 		if (isIdle)
 			return;
-		Debug.LogFormat("OnPlayerIdle");
 		playerTimer.Enable();
 		playerHasInput = false;
 		isIdle = true;
@@ -56,7 +55,6 @@ public class PlayerInGameUI : MonoBehaviour
 	{
 		if (!isIdle)
 			return;
-		Debug.LogFormat("OnPlayerMove");
 		playerTimer.Disable();
 		playerHasInput = true;
 		ToggleCanvasGroup(controlsCanvas, false);
