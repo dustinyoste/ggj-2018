@@ -8,29 +8,38 @@ public class PlayerInGameUI : MonoBehaviour
 	public PlatformerCharacter2D character;
 	public bool playerHasInput = true;
 	public bool isIdle = true;
-	public bool isInteractionSquare;
 	public CanvasGroup controlsCanvas;
-	public float showControlsDelay = 5f;
+	public float showControlsDelayIncrement = 3f;
+	public float showControlsDelayMax = 12f;
 
 	private SimpleTimer playerTimer;
+	private float currentShowControlsDelay;
 
 	// Use this for initialization
 	void Start()
 	{
 		Debug.Assert(character != null, "character not set");
 
-		playerTimer = new SimpleTimer(showControlsDelay);
-
-		playerTimer.TimerEndedEvent += PlayerTimeEvent;
 		character.PlayerIdleEvent += Character_PlayerIdleEvent;
 
 		ToggleCanvasGroup(controlsCanvas, true);
+
+		NewTimer();
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
 		playerTimer.CheckUpdate();
+	}
+
+	private void NewTimer()
+	{
+		currentShowControlsDelay += showControlsDelayIncrement;
+		currentShowControlsDelay = Mathf.Min(showControlsDelayMax, currentShowControlsDelay);
+
+		playerTimer = new SimpleTimer(currentShowControlsDelay);
+		playerTimer.TimerEndedEvent += PlayerTimeEvent;
 	}
 
 	void OnPlayerIdle()
@@ -56,8 +65,6 @@ public class PlayerInGameUI : MonoBehaviour
 
 	void Character_PlayerIdleEvent(bool isIdling)
 	{
-		if (isInteractionSquare)
-			return;
 		if (isIdling) {
 			OnPlayerIdle();
 		} else {
@@ -67,6 +74,7 @@ public class PlayerInGameUI : MonoBehaviour
 
 	void PlayerTimeEvent()
 	{
+		NewTimer();
 		ToggleCanvasGroup(controlsCanvas, true);
 	}
 

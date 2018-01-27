@@ -376,9 +376,9 @@ MonoBehaviour:
   character: {fileID: 1878682413}
   playerHasInput: 1
   isIdle: 1
-  isInteractionSquare: 0
   controlsCanvas: {fileID: 242858890}
-  showControlsDelay: 5
+  showControlsDelayIncrement: 5
+  showControlsDelayMax: 20
 --- !u!1 &506566600
 GameObject:
   m_ObjectHideFlags: 0
@@ -684,9 +684,9 @@ MonoBehaviour:
   character: {fileID: 208787039}
   playerHasInput: 1
   isIdle: 1
-  isInteractionSquare: 0
   controlsCanvas: {fileID: 617874292}
-  showControlsDelay: 5
+  showControlsDelayIncrement: 3
+  showControlsDelayMax: 12
 --- !u!225 &617874292
 CanvasGroup:
   m_ObjectHideFlags: 0

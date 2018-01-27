@@ -24,7 +24,6 @@ public class BlockInGameUI : MonoBehaviour
 
 	void L_ShowLockedEvent(PlatformerCharacter2D player, bool enter)
 	{
-		Debug.LogFormat("L_ShowLockedEvent {0} | {1}", player.name, enter);
 		if (playerWithUI != player)
 			return;
 		
