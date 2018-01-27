@@ -1,3 +1,4 @@
+using Spine.Unity;
 using UnityEngine;
 
 [DisallowMultipleComponent]
@@ -13,7 +14,7 @@ public class PlatformerCharacter2D : MonoBehaviour
     public bool m_Grounded;
     private Transform m_CeilingCheck;   // A position marking where to check for ceilings
     const float k_CeilingRadius = .01f; // Radius of the overlap circle to determine if the player can stand up
-    private Animator m_Anim;            // Reference to the player's animator component.
+    
     private Rigidbody2D m_Rigidbody2D;
     private bool m_FacingRight = true; 
 
@@ -22,8 +23,22 @@ public class PlatformerCharacter2D : MonoBehaviour
     public event PlayerIdleHandler PlayerIdleEvent;
     public GameObject touchingObject;
     public bool isPusher;
+
+	[Header("Graphics")]
+	public SkeletonAnimation skeletonAnimation;
     public bool isPuller;
-    public float pushPullMultiplier = 5;
+
+	[Header("Animation")]
+	[SpineAnimation(dataField: "skeletonAnimation")]
+	public string walkName = "Walk";
+	[SpineAnimation(dataField: "skeletonAnimation")]
+	public string runName = "Run";
+	[SpineAnimation(dataField: "skeletonAnimation")]
+	public string idleName = "Idle";
+	[SpineAnimation(dataField: "skeletonAnimation")]
+	public string jumpName = "Jump";
+	[SpineAnimation(dataField: "skeletonAnimation")]
+	public string crouchName = "Crouch";
 
     private void Awake()
     {
@@ -47,15 +62,13 @@ public class PlatformerCharacter2D : MonoBehaviour
                 m_Grounded = true;
             }
         }
-        //m_Anim.SetBool("Ground", m_Grounded);
-
-        // Set the vertical animation
-        //m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
     }
 
     public void Move(float move, bool jump, bool grabbing)
     {
-        if (move != 0 || jump) {
+		if (move != 0 || jump) {
+			skeletonAnimation.loop = true;
+			skeletonAnimation.AnimationName = walkName;
             if (m_Idling) {
                 var idleEvent = PlayerIdleEvent;
                 if (idleEvent != null) {
@@ -115,29 +128,24 @@ public class PlatformerCharacter2D : MonoBehaviour
             }
         }
 
-        // If the input is moving the player right and the player is facing left...
         if (!grabbing) { 
-            if (move > 0 && !m_FacingRight) {
-                Flip();
-            } else if (move < 0 && m_FacingRight) {
-                // ... flip the player.
-                Flip();
+			// If the input is moving the player right and the player is facing left...
+            if (move > 0 && !m_FacingRight)
+			{
+				skeletonAnimation.Skeleton.FlipX = !skeletonAnimation.Skeleton.FlipX;
+				m_FacingRight = !m_FacingRight;
             }
+            // Otherwise if the input is moving the player left and the player is facing right...
+            else if (move < 0 && m_FacingRight)
+			{
+				skeletonAnimation.Skeleton.FlipX = !skeletonAnimation.Skeleton.FlipX;
+				m_FacingRight = !m_FacingRight;
+            }
+
         }
     }
 
     public void TouchingObject(GameObject obj) {
         this.touchingObject = obj;
-    }
-
-    private void Flip()
-    {
-        // Switch the way the player is labelled as facing.
-        m_FacingRight = !m_FacingRight;
-
-        // Multiply the player's x local scale by -1.
-        Vector3 theScale = transform.localScale;
-        theScale.x *= -1;
-        transform.localScale = theScale;
     }
 }

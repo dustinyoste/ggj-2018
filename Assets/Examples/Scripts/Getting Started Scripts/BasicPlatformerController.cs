@@ -37,6 +37,9 @@ namespace Spine.Unity.Examples {
 	[RequireComponent(typeof(CharacterController))]
 	public class BasicPlatformerController : MonoBehaviour {
 
+		[Header("Player")]
+		public int player;
+
 		[Header("Controls")]
 		public string XAxis = "Horizontal";
 		public string YAxis = "Vertical";
@@ -114,13 +117,13 @@ namespace Spine.Unity.Examples {
 			float dt = Time.deltaTime;
 
 			if (!crouching) { 
-				if (Input.GetButtonDown(JumpButton) && controller.isGrounded) {					
+				if (Input.GetButtonDown(JumpButton + player) && controller.isGrounded) {					
 					jumpAudioSource.Stop();
 					jumpAudioSource.Play();
 					velocity.y = jumpSpeed;
 					jumpEndTime = Time.time + jumpDuration;
 				} else {
-					jumpInterrupt |= Time.time < jumpEndTime && Input.GetButtonUp(JumpButton);
+					jumpInterrupt |= Time.time < jumpEndTime && Input.GetButtonUp(JumpButton + player);
 				}
 
 				if (input.x != 0) {

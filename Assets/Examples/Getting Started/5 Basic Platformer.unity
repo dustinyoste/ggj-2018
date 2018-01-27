@@ -5584,9 +5584,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27b3e3370f55c0a438ef0a10c2eba510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: 1
   XAxis: Horizontal1
   YAxis: Vertical
-  JumpButton: Submit
+  JumpButton: Jump
   walkSpeed: 1.5
   runSpeed: 7
   gravityScale: 6.6
