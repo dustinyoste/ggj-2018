@@ -29,6 +29,8 @@ namespace UnityStandardAssets._2D
 
         private void FixedUpdate()
         {
+            //Debug.Log("m_jump");
+            //Debug.Log(m_Jump);
             // Read the inputs.
             bool crouch = Input.GetKey(KeyCode.LeftControl);
             float h = CrossPlatformInputManager.GetAxis("Horizontal");
