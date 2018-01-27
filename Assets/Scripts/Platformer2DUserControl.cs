@@ -8,29 +8,32 @@ public class Platformer2DUserControl : MonoBehaviour
     public int player;
 
     private PlatformerCharacter2D m_Character;
-    private bool m_Jump;
-
+    private bool jumping;
+    public bool grabbing;
+    
     private void Awake()
     {
         m_Character = GetComponent<PlatformerCharacter2D>();
     }
 
-
     private void Update()
     {
-        if (!m_Jump)
-        {
-            // Read the jump input in Update so button presses aren't missed.
-            m_Jump = CrossPlatformInputManager.GetButtonDown("Jump"+player);
+        // Read the inputs in Update so button presses aren't missed.
+        if (!jumping) {
+            jumping= CrossPlatformInputManager.GetButtonDown("Jump"+player);
+        }
+        if (!grabbing) {
+            grabbing = CrossPlatformInputManager.GetButtonDown("Grab"+player);
+        } else if (CrossPlatformInputManager.GetButtonUp("Grab"+player)) {
+            grabbing = false;
         }
     }
 
 
     private void FixedUpdate()
     {
-        bool crouch = false;//Input.GetKey(KeyCode.LeftControl);
         float h = CrossPlatformInputManager.GetAxis("Horizontal"+player);
-        m_Character.Move(h, m_Jump);
-        m_Jump = false;
+        m_Character.Move(h, jumping, grabbing);
+        jumping = false;
     }
 }
