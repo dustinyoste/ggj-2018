@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityStandardAssets._2D;
+﻿using UnityEngine;
 
+[DisallowMultipleComponent]
 public class PlayerInGameUI : MonoBehaviour
 {
 	public PlatformerCharacter2D character;

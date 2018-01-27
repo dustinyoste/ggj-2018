@@ -1,13 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityStandardAssets._2D;
+﻿using UnityEngine;
 
+[DisallowMultipleComponent]
 public class BlockInGameUI : MonoBehaviour
 {
 	public Camera m_MainCamera;
 	public CanvasGroup controlsCanvas;
-	public GameObject block;
 	public Vector3 labelOffset = new Vector3(0f, 40f, 0f);
 	public PlatformerCharacter2D playerWithUI;
 
@@ -22,13 +19,13 @@ public class BlockInGameUI : MonoBehaviour
 		PlayerInGameUI.ToggleCanvasGroup(controlsCanvas, false);
 	}
 
-	void L_ShowLockedEvent(PlatformerCharacter2D player, bool enter)
+	void L_ShowLockedEvent(OnLockedCollider collider, PlatformerCharacter2D player, bool enter)
 	{
 		if (playerWithUI != player)
 			return;
 		
 		PlayerInGameUI.ToggleCanvasGroup(controlsCanvas, enter);
 
-		transform.position = m_MainCamera.WorldToScreenPoint(block.transform.position) + labelOffset;
+		transform.position = m_MainCamera.WorldToScreenPoint(collider.block.transform.position) + labelOffset;
 	}
 }
