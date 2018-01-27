@@ -167,8 +167,10 @@ namespace Spine.Unity.Examples {
 
 			if (controller.isGrounded) {
 				if (crouching) {
+					skeletonAnimation.loop = false;
 					skeletonAnimation.AnimationName = crouchName;
 				} else {
+					skeletonAnimation.loop = true;
 					if (input.x == 0)
 						skeletonAnimation.AnimationName = idleName;
 					else
