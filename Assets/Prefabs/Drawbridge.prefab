@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4442564893446648}
   - component: {fileID: 114981224457466242}
+  - component: {fileID: 61773250659012222}
   m_Layer: 0
   m_Name: Drawbridge
   m_TagString: Untagged
@@ -50,7 +51,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1523281139741940}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: 1, z: -0.046569396}
+  m_LocalPosition: {x: 8.03, y: -1.44, z: -0.046569396}
   m_LocalScale: {x: 1, y: 5, z: 1}
   m_Children:
   - {fileID: 4718349082697402}
@@ -70,6 +71,31 @@ Transform:
   m_Father: {fileID: 4442564893446648}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &61773250659012222
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1523281139741940}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.5, y: 0.5}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!114 &114981224457466242
 MonoBehaviour:
   m_ObjectHideFlags: 1
