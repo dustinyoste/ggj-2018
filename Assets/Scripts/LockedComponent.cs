@@ -21,6 +21,7 @@ public class LockedComponent : MonoBehaviour, ILockable
 
 	#endregion
 
+	[SerializeField]
 	private bool locked = true;
 
 	// Use this for initialization
