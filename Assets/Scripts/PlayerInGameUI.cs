@@ -1,0 +1,69 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerInGameUI : MonoBehaviour
+{
+	public bool playerHasInput = true;
+	public bool isIdle = true;
+	public CanvasGroup playerControls;
+	public float showControlsDelay = 5f;
+
+	private SimpleTimer playerTimer;
+
+	// Use this for initialization
+	void Start()
+	{
+		playerTimer = new SimpleTimer(showControlsDelay);
+
+		playerTimer.TimerEndedEvent += PlayerTimeEvent;
+
+		ToggleCanvasGroup(playerControls, false);
+	}
+
+	// Update is called once per frame
+	void Update()
+	{
+		playerTimer.CheckUpdate();
+
+		if (!playerHasInput) {
+			OnPlayerIdle();
+		} else {
+			OnPlayerMove();
+		}
+	}
+
+	void OnPlayerIdle()
+	{
+		if (isIdle)
+			return;
+		Debug.LogFormat("OnPlayerIdle");
+		playerTimer.Enable();
+		playerHasInput = false;
+		isIdle = true;
+	}
+
+	void OnPlayerMove()
+	{
+		if (!isIdle)
+			return;
+		Debug.LogFormat("OnPlayerMove");
+		playerTimer.Disable();
+		playerHasInput = true;
+		ToggleCanvasGroup(playerControls, false);
+		isIdle = false;
+	}
+
+	void PlayerTimeEvent()
+	{
+		Debug.LogFormat("PlayerTimeEvent");
+		ToggleCanvasGroup(playerControls, true);
+	}
+
+	static void ToggleCanvasGroup(CanvasGroup canvas, bool toggle)
+	{
+		canvas.alpha = toggle ? 1 : 0;
+		canvas.interactable = toggle;
+		canvas.blocksRaycasts = toggle;
+	}
+}
