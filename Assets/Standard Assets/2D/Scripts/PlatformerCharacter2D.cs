@@ -20,7 +20,7 @@ namespace UnityStandardAssets._2D
         private Rigidbody2D m_Rigidbody2D;
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 
-        private bool m_idle = true;
+        private bool m_Idling = true;
         public delegate void PlayerIdleHandler(bool isIdling);
         public event PlayerIdleHandler PlayerIdleEvent;
 
@@ -30,6 +30,10 @@ namespace UnityStandardAssets._2D
             m_CeilingCheck = transform.Find("CeilingCheck");
             m_Rigidbody2D = GetComponent<Rigidbody2D>();
             //m_Anim = GetComponent<Animator>();
+        }
+        
+        private void Update()
+        {
         }
 
         private void FixedUpdate()
@@ -50,11 +54,14 @@ namespace UnityStandardAssets._2D
 
         public void Move(float move, bool jump)
         {
-            if (move != 0 && jump && m_idle) {
-                if (PlayerIdleEvent != null) {
+            if (move != 0 && jump) {
+                if (m_Idling) {
                     PlayerIdleEvent(false);
-                    m_idle = true;
+                    m_Idling = false;
                 }
+            } else if (!m_Idling) {
+                PlayerIdleEvent(true);
+                m_Idling = true;
             }
 
             if (m_Grounded || m_AirControl)
