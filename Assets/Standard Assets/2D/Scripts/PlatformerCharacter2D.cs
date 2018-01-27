@@ -54,14 +54,20 @@ namespace UnityStandardAssets._2D
 
         public void Move(float move, bool jump)
         {
-            if (move != 0 && jump) {
+            if (move != 0 || jump) {
                 if (m_Idling) {
-                    PlayerIdleEvent(false);
-                    m_Idling = false;
+                    var idleEvent = PlayerIdleEvent;
+                    if (idleEvent != null) {
+                        PlayerIdleEvent(false);
+                        m_Idling = false;
+                    }
                 }
             } else if (!m_Idling) {
-                PlayerIdleEvent(true);
-                m_Idling = true;
+                var idleEvent = PlayerIdleEvent;
+                if (idleEvent != null) {
+                    PlayerIdleEvent(true);
+                    m_Idling = true;
+                }
             }
 
             if (m_Grounded || m_AirControl)
