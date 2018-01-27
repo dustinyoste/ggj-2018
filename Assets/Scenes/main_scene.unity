@@ -153,8 +153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f6c7f769f163482a963e081ee70db10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Player1: {fileID: 0}
-  m_Player2: {fileID: 0}
+  m_Player1: {fileID: 609877576}
+  m_Player2: {fileID: 2141450887}
 --- !u!1 &284870431
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,10 +421,10 @@ Transform:
   m_PrefabInternal: {fileID: 609877575}
 --- !u!114 &609877577 stripped
 MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114464430234204438, guid: 9a7dadbad5f384a8e874ad57420ed5bb,
+  m_PrefabParentObject: {fileID: 114755407504372322, guid: 9a7dadbad5f384a8e874ad57420ed5bb,
     type: 2}
   m_PrefabInternal: {fileID: 609877575}
-  m_Script: {fileID: 11500000, guid: d08f91df3bd212f429df17f53ce2f364, type: 3}
+  m_Script: {fileID: 11500000, guid: ac892b536c79542f3a89fa50ba5da23b, type: 3}
 --- !u!1 &651734362
 GameObject:
   m_ObjectHideFlags: 0
@@ -968,9 +968,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14185b6ce20df4700b2e923f38da8962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MainCamera: {fileID: 0}
+  m_MainCamera: {fileID: 1293925718}
   controlsCanvas: {fileID: 749046347}
-  block: {fileID: 0}
   labelOffset: {x: 0, y: 40, z: 0}
   playerWithUI: {fileID: 609877577}
 --- !u!225 &749046347
@@ -1100,7 +1099,7 @@ MonoBehaviour:
   m_Script: {fileID: 1077351063, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
+  m_HorizontalAxis: Horizontal1
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
   m_CancelButton: Cancel
@@ -1319,11 +1318,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14185b6ce20df4700b2e923f38da8962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MainCamera: {fileID: 0}
+  m_MainCamera: {fileID: 1293925718}
   controlsCanvas: {fileID: 1074951231}
-  block: {fileID: 2141450885}
   labelOffset: {x: 0, y: 40, z: 0}
-  playerWithUI: {fileID: 0}
+  playerWithUI: {fileID: 2141450888}
 --- !u!225 &1074951231
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2266,6 +2264,11 @@ Prefab:
       propertyPath: m_Offset.y
       value: 0.25
       objectReference: {fileID: 0}
+    - target: {fileID: 114097128978873526, guid: 9a7dadbad5f384a8e874ad57420ed5bb,
+        type: 2}
+      propertyPath: player
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 9a7dadbad5f384a8e874ad57420ed5bb, type: 2}
@@ -2302,7 +2305,7 @@ Transform:
   m_PrefabInternal: {fileID: 2141450884}
 --- !u!114 &2141450888 stripped
 MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114464430234204438, guid: 9a7dadbad5f384a8e874ad57420ed5bb,
+  m_PrefabParentObject: {fileID: 114755407504372322, guid: 9a7dadbad5f384a8e874ad57420ed5bb,
     type: 2}
   m_PrefabInternal: {fileID: 2141450884}
-  m_Script: {fileID: 11500000, guid: d08f91df3bd212f429df17f53ce2f364, type: 3}
+  m_Script: {fileID: 11500000, guid: ac892b536c79542f3a89fa50ba5da23b, type: 3}

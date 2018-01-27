@@ -1,6 +1,6 @@
-using System;
 using UnityEngine;
 
+[DisallowMultipleComponent]
 public class PlatformerCharacter2D : MonoBehaviour
 {
     [SerializeField] public float m_MaxSpeed = 10f; // The fastest the player can travel in the x axis.

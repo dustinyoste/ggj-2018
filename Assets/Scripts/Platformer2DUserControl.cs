@@ -1,7 +1,7 @@
-using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
+[DisallowMultipleComponent]
 [RequireComponent(typeof (PlatformerCharacter2D))]
 public class Platformer2DUserControl : MonoBehaviour
 {
