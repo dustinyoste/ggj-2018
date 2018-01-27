@@ -15,6 +15,7 @@ public class Action : MonoBehaviour, IAction
     
     protected float ActionTime;
     protected Transform ProgressTransform;
+    protected Color DefaultProgressColor;
 
     void Start()
     {
@@ -24,6 +25,8 @@ public class Action : MonoBehaviour, IAction
         ActionTime = 0;
         _defaultColor = GetComponent<Renderer>().sharedMaterial.GetColor("_Color");
         ProgressTransform = transform.Find("ProgressContainer").gameObject.transform;
+        DefaultProgressColor = ProgressTransform.Find("Progress").GetComponent<Renderer>().material.GetColor("_Color");
+        ResetProgress();
     }
 
     void Update()
@@ -97,8 +100,6 @@ public class Action : MonoBehaviour, IAction
         renderer.material.SetColor("_Color", Color.red);
     }
 
-    protected virtual void ShowProgress()
-    {
-       
-    }
+    protected virtual void ShowProgress() {}
+    protected virtual void ResetProgress() {}
 }
