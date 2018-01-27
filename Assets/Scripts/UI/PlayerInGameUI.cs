@@ -9,7 +9,7 @@ public class PlayerInGameUI : MonoBehaviour
 	public bool playerHasInput = true;
 	public bool isIdle = true;
 	public bool isInteractionSquare;
-	public CanvasGroup playerControls;
+	public CanvasGroup controlsCanvas;
 	public float showControlsDelay = 5f;
 
 	private SimpleTimer playerTimer;
@@ -24,7 +24,7 @@ public class PlayerInGameUI : MonoBehaviour
 		playerTimer.TimerEndedEvent += PlayerTimeEvent;
 		character.PlayerIdleEvent += Character_PlayerIdleEvent;
 
-		ToggleCanvasGroup(playerControls, true);
+		ToggleCanvasGroup(controlsCanvas, true);
 	}
 
 	// Update is called once per frame
@@ -50,7 +50,7 @@ public class PlayerInGameUI : MonoBehaviour
 		Debug.LogFormat("OnPlayerMove");
 		playerTimer.Disable();
 		playerHasInput = true;
-		ToggleCanvasGroup(playerControls, false);
+		ToggleCanvasGroup(controlsCanvas, false);
 		isIdle = false;
 	}
 
@@ -67,7 +67,7 @@ public class PlayerInGameUI : MonoBehaviour
 
 	void PlayerTimeEvent()
 	{
-		ToggleCanvasGroup(playerControls, true);
+		ToggleCanvasGroup(controlsCanvas, true);
 	}
 
 	public static void ToggleCanvasGroup(CanvasGroup canvas, bool toggle)
