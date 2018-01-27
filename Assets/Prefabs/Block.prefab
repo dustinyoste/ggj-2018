@@ -305,7 +305,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ActionList:
   - {fileID: 1674427829426218}
-  ActionOnUnlock: []
+  ActionOnUnlock:
+  - {fileID: 1058128006709410}
   BufferTime: 0.5
   resetTime: 0.5
   LockedComponent: {fileID: 114406186048506164}

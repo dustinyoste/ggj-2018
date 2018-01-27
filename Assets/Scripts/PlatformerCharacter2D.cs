@@ -97,7 +97,8 @@ public class PlatformerCharacter2D : MonoBehaviour
 
         var movingBlock = false;
         if (grabbing && touchingObject != null) {
-            if (touchingObject.tag == "Block") {
+            var blockScript = touchingObject.GetComponent<BlockScript>();
+            if (blockScript != null && !blockScript.IsLocked) {
                 if (m_Rigidbody2D.velocity.x > 0 && isPusher) {
                     touchingObject.GetComponent<Rigidbody2D>().velocity = m_Rigidbody2D.velocity;
                     movingBlock = true;

@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlockScript : MonoBehaviour {
+public class BlockScript : MonoBehaviour, IOnUnlock {
     public GameObject Buddy;
 
     private bool BeingMoved;
+	public bool IsLocked = true;
+    
     private Vector2 velocity;
 
     private void FixedUpdate()
@@ -25,5 +27,10 @@ public class BlockScript : MonoBehaviour {
     private void Update() {
         var rigidbody = GetComponent<Rigidbody2D>();
         velocity = rigidbody.velocity;
+    }
+
+	public void OnUnlock()
+	{
+        IsLocked = false;
     }
 }

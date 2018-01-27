@@ -1039,6 +1039,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1999935429}
     m_Modifications:
+    - target: {fileID: 114209356609413166, guid: cf03dedc369bf4c0db720f5dbefd97c3,
+        type: 2}
+      propertyPath: ActionOnUnlock.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4834617212790982, guid: cf03dedc369bf4c0db720f5dbefd97c3, type: 2}
       propertyPath: m_LocalPosition.x
       value: 2.072007
@@ -1076,11 +1081,11 @@ Prefab:
       propertyPath: Buddy
       value: 
       objectReference: {fileID: 2026394863}
-    - target: {fileID: 50006214204837286, guid: cf03dedc369bf4c0db720f5dbefd97c3,
+    - target: {fileID: 114209356609413166, guid: cf03dedc369bf4c0db720f5dbefd97c3,
         type: 2}
-      propertyPath: m_Constraints
-      value: 5
-      objectReference: {fileID: 0}
+      propertyPath: ActionOnUnlock.Array.data[0]
+      value: 
+      objectReference: {fileID: 1338503667}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cf03dedc369bf4c0db720f5dbefd97c3, type: 2}
   m_IsPrefabParent: 0
