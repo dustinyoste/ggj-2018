@@ -16,4 +16,11 @@ public class LineAction : Action
 			ProgressTransform.Find("Progress").GetComponent<Renderer>().material.SetColor("_Color", Color.green);
 		}
 	}
+	
+	protected override void ResetProgress()
+	{
+		_isValidTime = false;
+		ProgressTransform.localScale = new Vector2(0, ProgressTransform.localScale.y);
+		ProgressTransform.Find("Progress").GetComponent<Renderer>().material.SetColor("_Color", DefaultProgressColor);
+	}
 }
