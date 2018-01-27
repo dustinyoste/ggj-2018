@@ -5,13 +5,6 @@ using UnityStandardAssets._2D;
 
 public class PlayerInGameUI : MonoBehaviour
 {
-	void L_ShowLockedEvent(PlatformerCharacter2D player, bool enter)
-	{
-		if (player != character)
-			return;
-		ToggleCanvasGroup(playerControls, enter);
-	}
-
 	public PlatformerCharacter2D character;
 	public bool playerHasInput = true;
 	public bool isIdle = true;
@@ -32,11 +25,6 @@ public class PlayerInGameUI : MonoBehaviour
 		character.PlayerIdleEvent += Character_PlayerIdleEvent;
 
 		ToggleCanvasGroup(playerControls, true);
-
-		var lockedColliders = FindObjectsOfType<OnLockedCollider>();
-		foreach (var l in lockedColliders) {
-			l.ShowLockedEvent += L_ShowLockedEvent;
-		}
 	}
 
 	// Update is called once per frame
@@ -68,7 +56,6 @@ public class PlayerInGameUI : MonoBehaviour
 
 	void Character_PlayerIdleEvent(bool isIdling)
 	{
-		Debug.Log("Character_PlayerIdleEvent");
 		if (isInteractionSquare)
 			return;
 		if (isIdling) {
@@ -78,19 +65,12 @@ public class PlayerInGameUI : MonoBehaviour
 		}
 	}
 
-	void CharacterInInteractionSquare(bool show)
-	{
-		isInteractionSquare = show;
-		ToggleCanvasGroup(playerControls, show);
-	}
-
 	void PlayerTimeEvent()
 	{
-		Debug.LogFormat("PlayerTimeEvent");
 		ToggleCanvasGroup(playerControls, true);
 	}
 
-	static void ToggleCanvasGroup(CanvasGroup canvas, bool toggle)
+	public static void ToggleCanvasGroup(CanvasGroup canvas, bool toggle)
 	{
 		canvas.alpha = toggle ? 1 : 0;
 		canvas.interactable = toggle;
