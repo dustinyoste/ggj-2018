@@ -125,8 +125,17 @@ public class ActionHandler : MonoBehaviour
 			_audioSource.Play();	
 		}
 
-		for (int i = 0; i < ActionOnUnlock.Length; i++) {
-			ActionOnUnlock[i].GetComponent<IOnUnlock>().OnUnlock();
+		for (int i = 0; i < ActionOnUnlock.Length; i++)
+		{
+			var unlockComponent = ActionOnUnlock[i].GetComponent<IOnUnlock>();
+			if (unlockComponent != null)
+			{
+				ActionOnUnlock[i].GetComponent<IOnUnlock>().OnUnlock();
+			}
+			else
+			{
+				Debug.LogError(ActionOnUnlock[i].name + " has no OnUnlock script");
+			}
 		}
 	}
 
