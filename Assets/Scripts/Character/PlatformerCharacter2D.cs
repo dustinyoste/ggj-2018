@@ -51,7 +51,6 @@ public class PlatformerCharacter2D : MonoBehaviour
         m_GroundCheck = transform.Find("GroundCheck");
         m_CeilingCheck = transform.Find("CeilingCheck");
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
-        //m_Anim = GetComponent<Animator>();
     }
     
     private void Update()
@@ -114,16 +113,15 @@ public class PlatformerCharacter2D : MonoBehaviour
         }
 
         // If the player should jump...
-        if (m_Grounded && jump) // && m_Anim.GetBool("Ground"))
+        if (m_Grounded && jump) 
         {
-            //m_Anim.SetBool("Ground", false);
             m_Grounded = false;
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce)); // Add a vertical force to the player.
 			skeletonAnimation.loop = false;
 			skeletonAnimation.AnimationName = jumpName;
         }
 
-        // If the input is moving the player right and the player is facing left...
+        // handle grabbing a block
         var movingBlock = false;
         if (grabbing && touchingObject != null) {
             var blockLock = touchingObject.GetComponent<LockedComponent>();
@@ -145,7 +143,7 @@ public class PlatformerCharacter2D : MonoBehaviour
                     }
                 }
             }
-        } else {
+        } else { // handle flipping facing direction if not grabbing
             if (move > 0 && !m_FacingRight) {
 				skeletonAnimation.Skeleton.FlipX = !skeletonAnimation.Skeleton.FlipX;
 				m_FacingRight = !m_FacingRight;
@@ -155,6 +153,7 @@ public class PlatformerCharacter2D : MonoBehaviour
             }
         }
 
+        // update grabbed block or let go of it
         if (touchingObject != null) {
             if (movingBlock) {
                 var blockBuddy = touchingObject.GetComponent<InteractiveBlock>().Buddy;
