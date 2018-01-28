@@ -137,11 +137,15 @@ public class PlatformerCharacter2D : MonoBehaviour
 
         // update grabbed block or let go of it
         if (touchingObject != null) {
+            var x = touchingObject.GetComponent<InteractiveBlock>();
+            if (x == null) { 
+                return;
+            }
             if (movingBlock) {
-                touchingObject.GetComponent<InteractiveBlock>().BeingMovedByPlayer(true);
+                x.BeingMovedByPlayer(true);
                 touchingObject.GetComponent<Rigidbody2D>().velocity = m_Rigidbody2D.velocity;
             } else {
-                touchingObject.GetComponent<InteractiveBlock>().BeingMovedByPlayer(false);
+                x.BeingMovedByPlayer(false);
             }
         }
     }
