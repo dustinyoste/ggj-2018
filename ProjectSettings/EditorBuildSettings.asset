@@ -11,12 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/main_scene.unity
     guid: 7f246521be064400784a4215aece16c2
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/dustin.unity
     guid: 6bc02b66de256465d908cc95221328d1
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/kamau.unity
     guid: ec23ec59ef4a540e48fdf2dce63d4f0f
-  - enabled: 1
-    path: Assets/Scenes/zach.unity
-    guid: a91b0ee5738114add8068618f9f7f7d0
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
