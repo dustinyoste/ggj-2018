@@ -6,7 +6,7 @@ using NUnit.Framework.Constraints;
 using UnityEngine;
 
 public class DotAction : Action
-{
+{    
     private bool _isValidTime = false;
     protected override void ShowProgress()
     {
