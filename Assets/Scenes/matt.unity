@@ -3278,6 +3278,7 @@ GameObject:
   - component: {fileID: 1763653251}
   - component: {fileID: 1763653252}
   - component: {fileID: 1763653253}
+  - component: {fileID: 1763653257}
   m_Layer: 0
   m_Name: Block
   m_TagString: Block
@@ -3317,7 +3318,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ActionList:
   - {fileID: 1629123787}
-  ActionOnUnlock: []
+  ActionOnUnlock:
+  - {fileID: 2080668447}
   BufferTime: 0.5
   resetTime: 0.5
   LockedComponent: {fileID: 1763653252}
@@ -3479,6 +3481,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 5
+--- !u!114 &1763653257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1763653249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7c615590063a4e79b5bc42ad45171f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1792269797
 GameObject:
   m_ObjectHideFlags: 0
@@ -4052,6 +4065,7 @@ GameObject:
   - component: {fileID: 2080668449}
   - component: {fileID: 2080668450}
   - component: {fileID: 2080668451}
+  - component: {fileID: 2080668455}
   m_Layer: 0
   m_Name: Block (1)
   m_TagString: Block
@@ -4091,7 +4105,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ActionList:
   - {fileID: 1375617597}
-  ActionOnUnlock: []
+  ActionOnUnlock:
+  - {fileID: 1763653249}
   BufferTime: 0.5
   resetTime: 0.5
   LockedComponent: {fileID: 2080668450}
@@ -4253,6 +4268,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 5
+--- !u!114 &2080668455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2080668447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7c615590063a4e79b5bc42ad45171f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2093209400
 GameObject:
   m_ObjectHideFlags: 0
