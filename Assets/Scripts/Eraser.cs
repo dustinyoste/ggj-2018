@@ -2,7 +2,6 @@
 using UnityEngine.SceneManagement;
 
 [DisallowMultipleComponent]
-[RequireComponent(typeof(Hazard))]
 public class Eraser : MonoBehaviour
 {
 	public float degreesPerSecond = 15.0f;
@@ -26,7 +25,7 @@ public class Eraser : MonoBehaviour
 
 		tempPos = posOffset;
 		tempPos.y += Mathf.Sin(Time.fixedTime * Mathf.PI * frequency) * amplitude;
-		tempPos.x += transform.position.x + (speedForward * Time.deltaTime);
+		tempPos.x += transform.position.x + (speedForward/100 * Time.fixedTime);
 
 		transform.position = tempPos;
 	}
