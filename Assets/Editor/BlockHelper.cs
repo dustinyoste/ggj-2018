@@ -62,7 +62,7 @@ public class BlockHelper : MonoBehaviour
 
 	public static readonly string kPlatformsChildOfLevelName = "Level";
 
-	private static bool IsPartOfLevel(GameObject gameObject)
+	public static bool IsPartOfLevel(GameObject gameObject)
 	{
 		GameObject platformsChildOfLevel = GameObject.Find(kPlatformsChildOfLevelName);
 		return IsChildOf(platformsChildOfLevel, gameObject);
