@@ -24,7 +24,7 @@ public class ActionHandler : MonoBehaviour
 	public delegate void ActionUIHandler(ActionType type);
 	public event ActionUIHandler ActionUIEvent;
 
-	public GameObject[] ActionList;
+	public Action[] ActionList;
 	public GameObject[] ActionOnUnlock;
 	public float BufferTime;
 	public float resetTime;
@@ -85,7 +85,7 @@ public class ActionHandler : MonoBehaviour
 	void StartAction()
 	{
 		var actionObject = ActionList[_actionListIndex];
-		_currentAction = actionObject.GetComponent<IAction>();
+		_currentAction = actionObject;
 		_currentAction.StartAction();
 	}
 
