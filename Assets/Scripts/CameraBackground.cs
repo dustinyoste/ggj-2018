@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(SpriteRenderer))]
 public class CameraBackground : MonoBehaviour
 {
 	public Camera m_MainCamera;
@@ -19,7 +18,7 @@ public class CameraBackground : MonoBehaviour
 	{
 		GameController.TryGetInstance(out gameController);
 
-     transform.localScale = new Vector3(1, 1, 1);
+        transform.localScale = new Vector3(1, 1, 1);
 
 		var width = background.sprite.bounds.size.x;
 		var height = background.sprite.bounds.size.y;
@@ -33,8 +32,5 @@ public class CameraBackground : MonoBehaviour
 
 	private void Update()
 	{
-		if (gameController) {
-			background.sprite = gameController.CurrentBackgroundSprite;
-		}
 	}
 }

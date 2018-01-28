@@ -5,10 +5,14 @@ using UnityEngine;
 public class LayerRenderer : MonoBehaviour
 {
 	private SpriteRenderer[] sprites;
+    public bool startHidden;
 
 	void Start()
 	{
 		sprites = GetComponentsInChildren<SpriteRenderer>();
+        if (startHidden) {
+            ToggleLayer(false);
+        }
 	}
 
 	public void ToggleLayer(bool show)
