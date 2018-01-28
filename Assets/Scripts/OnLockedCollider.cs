@@ -31,7 +31,8 @@ public class OnLockedCollider : MonoBehaviour
 
 		// Show the UI
 		var invokeEvent = ShowLockedEvent;
-		if (invokeEvent != null) {
+		if (invokeEvent != null)
+		{
 			invokeEvent(this, player, true);
 		}
 
@@ -47,6 +48,8 @@ public class OnLockedCollider : MonoBehaviour
 		var player = coll.GetComponent<PlatformerCharacter2D>();
 		if (player == null)
 			return;
+		
+		player.TouchingObject(null);
 
 		if (!lockedObject.IsLocked)
 			return;
@@ -61,7 +64,5 @@ public class OnLockedCollider : MonoBehaviour
 		if (actionHandler) {
 			actionHandler.StopInteract();
 		}
-
-        player.TouchingObject(null);
 	}
 }

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using NUnit.Framework.Constraints;
 using UnityEngine;
 
 public class Action : MonoBehaviour, IAction
@@ -14,6 +15,7 @@ public class Action : MonoBehaviour, IAction
 
     private bool _isRunning;
     private Color _defaultColor;
+    private Renderer _renderer;
 
     protected float ActionTime;
     protected Transform ProgressTransform;
@@ -21,6 +23,7 @@ public class Action : MonoBehaviour, IAction
 
     void Start()
     {
+        _renderer = GetComponent<Renderer>();
         _defaultColor = GetComponent<Renderer>().sharedMaterial.GetColor("_Color");
         ProgressTransform = transform.Find("ProgressContainer").gameObject.transform;
         DefaultProgressColor = ProgressTransform.Find("Progress").GetComponent<Renderer>().material.GetColor("_Color");
@@ -93,8 +96,6 @@ public class Action : MonoBehaviour, IAction
 
     public void Reset()
     {
-        var renderer = GetComponent<Renderer>();
-        renderer.material.SetColor("_Color", _defaultColor);
         ResetFlags();
         ResetProgress();
     }
@@ -109,14 +110,14 @@ public class Action : MonoBehaviour, IAction
 
     void HandleSuccess()
     {
-        var renderer = GetComponent<Renderer>();
-        renderer.material.SetColor("_Color", Color.green);
+        ProgressTransform.Find("Progress").GetComponent<Renderer>().material.SetColor("_Color", Color.green);
+        ProgressTransform.localScale = new Vector3(1, 1, 1);
     }
 
     void HandleFailure()
     {
-        var renderer = GetComponent<Renderer>();
-        renderer.material.SetColor("_Color", Color.red);
+        ProgressTransform.Find("Progress").GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+        ProgressTransform.localScale = new Vector3(1, 1, 1);
     }
 
     protected virtual void ShowProgress()
