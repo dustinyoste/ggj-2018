@@ -8,7 +8,7 @@ public class GameController : MonoBehaviour
 	#region Singleton
 
 	public Level LevelData;
-	public Canvas BackgroundCanvas;
+	public Sprite CurrentBackgroundSprite;
 	
 	private int _actionsComplete;
 
@@ -67,9 +67,7 @@ public class GameController : MonoBehaviour
 			}
 		}
 
-		if (BackgroundCanvas != null) {
-			BackgroundCanvas.GetComponentInChildren<Image>().sprite = newSection.spriteToShow;
-		}
+		CurrentBackgroundSprite = newSection.spriteToShow;
 	}
 
 	#endregion

@@ -14,4 +14,4 @@ MonoBehaviour:
   sceneToLoad: 
   sections:
   - numActionsToHit: 5
-    spriteToShow: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+    spriteToShow: {fileID: 21300000, guid: bcb290cc4657a40e286973516354c2ac, type: 3}
