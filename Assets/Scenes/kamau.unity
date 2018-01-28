@@ -197,13 +197,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActionList:
-  - {fileID: 1400773373}
+  - {fileID: 1400773375}
   ActionOnUnlock: []
   BufferTime: 0.5
   resetTime: 0.5
   LockedComponent: {fileID: 45216608}
   SuccessSound: {fileID: 8300000, guid: e885484e1bc99fb47a0ac3f6bfa586b1, type: 3}
   FailSound: {fileID: 8300000, guid: 532e417ffa3f95747908419a00be3780, type: 3}
+  m_Graphic: {fileID: 0}
 --- !u!114 &45216608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -639,13 +640,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActionList:
-  - {fileID: 1937236571}
+  - {fileID: 1937236573}
   ActionOnUnlock: []
   BufferTime: 0.5
   resetTime: 0.5
   LockedComponent: {fileID: 256773782}
   SuccessSound: {fileID: 8300000, guid: e885484e1bc99fb47a0ac3f6bfa586b1, type: 3}
   FailSound: {fileID: 8300000, guid: 532e417ffa3f95747908419a00be3780, type: 3}
+  m_Graphic: {fileID: 0}
 --- !u!114 &256773782
 MonoBehaviour:
   m_ObjectHideFlags: 0
