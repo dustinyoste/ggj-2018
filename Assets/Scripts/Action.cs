@@ -46,12 +46,15 @@ public class Action : MonoBehaviour, IAction
         _isRunning = true;
         ActionTime = 0;
 
-        var random = new System.Random();
-        var audioClipIndex = random.Next(AudioClips.Length);      
-        var audioSource = GetComponent<AudioSource>();
+        if (AudioClips.Length > 0)
+        {
+            var random = new System.Random();
+            var audioClipIndex = random.Next(AudioClips.Length);      
+            var audioSource = GetComponent<AudioSource>();
         
-        audioSource.clip = AudioClips[audioClipIndex];
-        audioSource.Play();
+            audioSource.clip = AudioClips[audioClipIndex];
+            audioSource.Play();     
+        }
     }
 
     public void CheckAction()

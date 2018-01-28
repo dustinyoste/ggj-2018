@@ -117,9 +117,13 @@ public class ActionHandler : MonoBehaviour
 	void PassAction()
 	{
 		m_Renderer.color = Color.green;
-		_audioSource.clip = SuccessSound;
-		_audioSource.Play();
 		LockedComponent.Unlock();
+
+		if (SuccessSound != null)
+		{
+			_audioSource.clip = SuccessSound;
+			_audioSource.Play();	
+		}
 
 		for (int i = 0; i < ActionOnUnlock.Length; i++) {
 			ActionOnUnlock[i].GetComponent<IOnUnlock>().OnUnlock();
@@ -133,8 +137,12 @@ public class ActionHandler : MonoBehaviour
 		_currentAction = null;
 		_shouldReset = true;
 		m_Renderer.color = Color.red;
-		_audioSource.clip = FailSound;
-		_audioSource.Play();
+
+		if (FailSound != null)
+		{
+			_audioSource.clip = FailSound;
+			_audioSource.Play();	
+		}
 
 		var invokeEvent = ActionUIEvent;
 		if (invokeEvent != null) {
