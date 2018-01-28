@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114206428920253678}
   - component: {fileID: 50386576833527408}
   - component: {fileID: 70003239629856366}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cody
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4675150148565462}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: -2065832391, guid: 0000000000000000d000000000000000, type: 0}
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 114666503029582454}
   - component: {fileID: 114894521140057432}
   - component: {fileID: 70253692425668892}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Morris
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4165350040606550}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: CeilingCheck
   m_TagString: Untagged
   m_Icon: {fileID: -2065832391, guid: 0000000000000000d000000000000000, type: 0}
@@ -103,7 +103,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4144788604502200}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: CeilingCheck
   m_TagString: Untagged
   m_Icon: {fileID: -2065832391, guid: 0000000000000000d000000000000000, type: 0}
@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 33257462509177504}
   - component: {fileID: 23343930438956304}
   - component: {fileID: 114219566896892132}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spine GameObject (moris)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 33804236504177016}
   - component: {fileID: 23057623110024284}
   - component: {fileID: 114665682184697594}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spine GameObject (moris)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4121807511502172}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: -2065832391, guid: 0000000000000000d000000000000000, type: 0}
@@ -235,7 +235,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1008520315553568}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.337993, y: -3.1070304, z: -0.046569396}
+  m_LocalPosition: {x: 10.35, y: -3.85, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4675150148565462}
@@ -251,7 +251,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1223747470127938}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 10.6, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4121807511502172}
@@ -267,7 +267,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1178508686541802}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.072007, y: -1.4370306, z: -0.046569396}
+  m_LocalPosition: {x: 2.072007, y: -1.4370306, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4388547859675624}
@@ -280,7 +280,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1408908190823512}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 6.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4325907554907188}
@@ -408,14 +408,14 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!50 &50683192436768492
 Rigidbody2D:
@@ -428,14 +428,14 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!70 &70003239629856366
 CapsuleCollider2D:
@@ -491,9 +491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac892b536c79542f3a89fa50ba5da23b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxSpeed: 10
-  m_JumpForce: 400
-  m_AirControl: 1
+  m_MaxSpeed: 2
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 256
@@ -606,9 +604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac892b536c79542f3a89fa50ba5da23b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxSpeed: 10
-  m_JumpForce: 400
-  m_AirControl: 1
+  m_MaxSpeed: 2
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 256

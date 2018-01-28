@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
@@ -9,7 +10,7 @@ public class GameController : MonoBehaviour
 
 	public Level LevelData;
 	public Sprite CurrentBackgroundSprite;
-	
+
 	private int _actionsComplete;
 
 	public static GameController Instance
@@ -40,7 +41,7 @@ public class GameController : MonoBehaviour
 		if (sInstance == null) {
 			sInstance = this;
 		}
-		
+
 		UpdateBackground();
 	}
 
@@ -49,20 +50,25 @@ public class GameController : MonoBehaviour
 		sInstance = null;
 	}
 
+	protected void Update()
+	{
+		if (Input.GetKey(KeyCode.Escape)) {
+			SceneManager.LoadScene("main_menu");
+		}
+	}
+
 	public void CompleteAction()
 	{
 		_actionsComplete++;
 		UpdateBackground();
 	}
-	
+
 	void UpdateBackground()
 	{
 		Section newSection = LevelData.sections[0];
-		for (int i = 0; i < LevelData.sections.Length; i++)
-		{
-			if (LevelData.sections[i].numActionsToHit <= _actionsComplete && 
-			    LevelData.sections[i].numActionsToHit > newSection.numActionsToHit)
-			{	
+		for (int i = 0; i < LevelData.sections.Length; i++) {
+			if (LevelData.sections[i].numActionsToHit <= _actionsComplete &&
+				LevelData.sections[i].numActionsToHit > newSection.numActionsToHit) {
 				newSection = LevelData.sections[i];
 			}
 		}

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Security.Permissions;
-using UnityEngine;
-using UnityStandardAssets._2D;
+﻿using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
 [RequireComponent(typeof(AudioSource))]

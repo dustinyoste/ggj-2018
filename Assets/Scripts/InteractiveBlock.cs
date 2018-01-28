@@ -12,12 +12,15 @@ public class InteractiveBlock : MonoBehaviour
 
 	private bool isBeingMovedByPlayer;
 	private bool isBeingMovedByBuddy;
+	private GameObject topCollider;
 
 	protected void Start()
 	{
 		actionHandler.ActionUIEvent += Item_ActionUIEvent;
 
 		StartCoroutine(NextFrame());
+
+		topCollider = transform.Find("TopCollider").gameObject;
 	}
 
 	IEnumerator NextFrame()
@@ -40,7 +43,7 @@ public class InteractiveBlock : MonoBehaviour
 	{
 		if (!canUpdate)
 			return;
-		
+
 		if (isBeingMovedByBuddy || isBeingMovedByPlayer) {
 			GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
 		} else {
@@ -60,8 +63,7 @@ public class InteractiveBlock : MonoBehaviour
 
 	void Item_ActionUIEvent(ActionHandler.ActionType type)
 	{
-		switch (type)
-		{
+		switch (type) {
 			case ActionHandler.ActionType.InitInteraction:
 				speechBubble.ToggleLayer(true);
 				break;
@@ -69,6 +71,13 @@ public class InteractiveBlock : MonoBehaviour
 			case ActionHandler.ActionType.Pass:
 				speechBubble.ToggleLayer(false);
 				break;
+		}
+	}
+
+	protected void OnCollisionEnter2D(Collision2D collision)
+	{
+		if (collision.gameObject.GetComponent<Hazard>() != null) {
+			topCollider.gameObject.transform.localScale.Scale(new Vector3(1.2f, 1f, 1f));
 		}
 	}
 }
