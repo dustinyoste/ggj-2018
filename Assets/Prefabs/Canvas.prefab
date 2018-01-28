@@ -284,7 +284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MainCamera: {fileID: 0}
   controlsCanvas: {fileID: 225804291220105078}
-  labelOffset: {x: 0, y: 40, z: 0}
+  labelOffset: {x: 0, y: -20, z: 0}
   playerWithUI: {fileID: 0}
 --- !u!114 &114280197179296864
 MonoBehaviour:
@@ -700,7 +700,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MainCamera: {fileID: 0}
   controlsCanvas: {fileID: 225501701621200070}
-  labelOffset: {x: 0, y: 40, z: 0}
+  labelOffset: {x: 0, y: -20, z: 0}
   playerWithUI: {fileID: 0}
 --- !u!114 &114870338659101880
 MonoBehaviour:
