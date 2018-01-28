@@ -250,7 +250,8 @@ Prefab:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 95143122429591804, guid: 854959443093249c688d58a549bd6f44, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 854959443093249c688d58a549bd6f44, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &819059823 stripped
