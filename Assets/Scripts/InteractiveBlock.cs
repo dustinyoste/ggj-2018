@@ -77,7 +77,7 @@ public class InteractiveBlock : MonoBehaviour
 	protected void OnCollisionEnter2D(Collision2D collision)
 	{
 		if (collision.gameObject.GetComponent<Hazard>() != null) {
-			topCollider.gameObject.transform.localScale = topCollider.gameObject.transform.localScale * new Vector3(1.2, 1, 1);
+			topCollider.gameObject.transform.localScale.Scale(new Vector3(1.2f, 1f, 1f));
 		}
 	}
 }

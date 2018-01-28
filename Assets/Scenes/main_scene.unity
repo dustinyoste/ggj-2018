@@ -6030,9 +6030,14 @@ Prefab:
       propertyPath: character
       value: 
       objectReference: {fileID: 1049712966}
-    - target: {fileID: 114422447256152862, guid: 7f1db584494cf484ca5b691d0ea7981b,
+    - target: {fileID: 114861334716974960, guid: 7f1db584494cf484ca5b691d0ea7981b,
         type: 2}
-      propertyPath: character
+      propertyPath: m_MainCamera
+      value: 
+      objectReference: {fileID: 66631475}
+    - target: {fileID: 114861334716974960, guid: 7f1db584494cf484ca5b691d0ea7981b,
+        type: 2}
+      propertyPath: playerWithUI
       value: 
       objectReference: {fileID: 1049712967}
     - target: {fileID: 114229600605437040, guid: 7f1db584494cf484ca5b691d0ea7981b,
@@ -6045,20 +6050,11 @@ Prefab:
       propertyPath: playerWithUI
       value: 
       objectReference: {fileID: 1049712966}
-    - target: {fileID: 114861334716974960, guid: 7f1db584494cf484ca5b691d0ea7981b,
+    - target: {fileID: 114422447256152862, guid: 7f1db584494cf484ca5b691d0ea7981b,
         type: 2}
-      propertyPath: m_MainCamera
-      value: 
-      objectReference: {fileID: 66631475}
-    - target: {fileID: 114861334716974960, guid: 7f1db584494cf484ca5b691d0ea7981b,
-        type: 2}
-      propertyPath: playerWithUI
+      propertyPath: character
       value: 
       objectReference: {fileID: 1049712967}
-    - target: {fileID: 1696027878244896, guid: 7f1db584494cf484ca5b691d0ea7981b, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7f1db584494cf484ca5b691d0ea7981b, type: 2}
   m_IsPrefabParent: 0
