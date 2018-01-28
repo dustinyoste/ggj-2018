@@ -8,7 +8,6 @@ public class Platformer2DUserControl : MonoBehaviour
     public int player;
 
     private PlatformerCharacter2D m_Character;
-    private bool jumping;
     public bool grabbing;
     
     private void Awake()
@@ -18,10 +17,6 @@ public class Platformer2DUserControl : MonoBehaviour
 
     private void Update()
     {
-        // Read the inputs in Update so button presses aren't missed.
-        if (!jumping) {
-            jumping= CrossPlatformInputManager.GetButtonDown("Jump"+player);
-        }
         if (!grabbing) {
             grabbing = CrossPlatformInputManager.GetButtonDown("Interact"+player);
         } else if (CrossPlatformInputManager.GetButtonUp("Interact"+player)) {
@@ -33,7 +28,6 @@ public class Platformer2DUserControl : MonoBehaviour
     private void FixedUpdate()
     {
         float h = CrossPlatformInputManager.GetAxis("Horizontal"+player);
-        m_Character.Move(h, jumping, grabbing);
-        jumping = false;
+        m_Character.Move(h, grabbing);
     }
 }

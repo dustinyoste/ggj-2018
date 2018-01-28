@@ -5,8 +5,6 @@ using UnityEngine;
 public class PlatformerCharacter2D : MonoBehaviour
 {
     [SerializeField] public float m_MaxSpeed = 10f;
-    [SerializeField] public float m_JumpForce = 400f;
-    [SerializeField] public bool m_AirControl = true; // Whether or not a player can steer while jumping;
     [SerializeField] private LayerMask m_WhatIsGround; // A mask determining what is ground to the character
 
     private Transform m_GroundCheck;
@@ -73,9 +71,9 @@ public class PlatformerCharacter2D : MonoBehaviour
         }
     }
 
-    public void Move(float move, bool jump, bool grabbing)
+    public void Move(float move, bool grabbing)
     {
-		if (move != 0 || jump) {
+		if (move != 0) {
 			skeletonAnimation.loop = true;
 			if(grabbing){
 				skeletonAnimation.AnimationName = actionName;
@@ -99,26 +97,14 @@ public class PlatformerCharacter2D : MonoBehaviour
             }
         }
 
-        if (m_Grounded || m_AirControl)
-        {
-            // Move the character
-            m_Rigidbody2D.velocity = new Vector2(move * m_MaxSpeed, m_Rigidbody2D.velocity.y);
+        // Move the character
+        m_Rigidbody2D.velocity = new Vector2(move * m_MaxSpeed, m_Rigidbody2D.velocity.y);
 
-            // Stop the player from moving off screen
-            var pos = Camera.main.WorldToViewportPoint(transform.position);
-            if (pos.x <= 0.05f || pos.x >= 0.95f) {
-                var correctMovement = pos.x <= 0.5f ? 0.1f : -0.1f;
-                m_Rigidbody2D.velocity = new Vector2(correctMovement, m_Rigidbody2D.velocity.y);
-            }
-        }
-
-        // If the player should jump...
-        if (m_Grounded && jump) 
-        {
-            m_Grounded = false;
-            m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce)); // Add a vertical force to the player.
-			skeletonAnimation.loop = false;
-			skeletonAnimation.AnimationName = jumpName;
+        // Stop the player from moving off screen
+        var pos = Camera.main.WorldToViewportPoint(transform.position);
+        if (pos.x <= 0.05f || pos.x >= 0.95f) {
+            var correctMovement = pos.x <= 0.5f ? 0.1f : -0.1f;
+            m_Rigidbody2D.velocity = new Vector2(correctMovement, m_Rigidbody2D.velocity.y);
         }
 
         // handle grabbing a block
