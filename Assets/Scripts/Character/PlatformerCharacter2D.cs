@@ -142,6 +142,10 @@ public class PlatformerCharacter2D : MonoBehaviour
 
         if (touchingObject != null) {
             if (movingBlock) {
+                var blockBuddy = touchingObject.GetComponent<BlockScript>().Buddy;
+                if (blockBuddy && blockBuddy.GetComponent<BlockScript>().IsLocked) {
+                    return;
+                }
                 touchingObject.GetComponent<BlockScript>().BeingMovedByPlayer(true);
                 touchingObject.GetComponent<Rigidbody2D>().velocity = m_Rigidbody2D.velocity;
             } else {

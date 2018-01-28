@@ -8,7 +8,7 @@ public class BlockScript : MonoBehaviour, IOnUnlock {
     private bool isBeingMovedByPlayer;
     private bool isBeingMovedByBuddy;
 	public bool IsLocked = true;
-    
+
     private Vector2 velocity;
 
     public void BeingMovedByBuddy(bool isBeingMoved) {
