@@ -28,6 +28,38 @@ public class BlockHelper : MonoBehaviour
 		}
 	}
 
+	[MenuItem("MorseBuilder/ConnectedBlock", false, 22)]
+	static void AddConnectedBlockGameobject(MenuCommand cmd)
+	{
+		GameObject activeGameObject = Selection.activeGameObject;
+		GameObject newObject = new GameObject("ConnectedBlock");
+		GameObject newObjectOne = CreatePrefabEditor("Assets/Prefabs/ForEditor/EditorBlock.prefab");
+		PrefabUtility.DisconnectPrefabInstance(newObjectOne);
+		newObjectOne = Instantiate(newObjectOne);
+		var newObjectTwo = Instantiate(newObjectOne);
+
+		newObjectOne.transform.SetParent(newObject.transform);
+		newObjectTwo.transform.SetParent(newObject.transform);
+
+		newObjectOne.GetComponent<InteractiveBlock>().Buddy = newObjectTwo;
+		newObjectTwo.GetComponent<InteractiveBlock>().Buddy = newObjectOne;
+
+		Selection.activeGameObject = newObject;
+
+		if (activeGameObject != null && IsPartOfLevel(activeGameObject)) {
+			newObject.transform.SetParent(activeGameObject.transform.parent);
+			newObject.transform.localPosition = activeGameObject.transform.localPosition;
+			newObject.transform.localRotation = activeGameObject.transform.localRotation;
+			newObject.transform.localScale = activeGameObject.transform.localScale;
+			GameObject.DestroyImmediate(activeGameObject);
+		} else {
+			GameObject platformsChildOfLevel = GameObject.Find(kPlatformsChildOfLevelName);
+			if (platformsChildOfLevel != null) {
+				newObject.transform.SetParent(platformsChildOfLevel.transform);
+			}
+		}
+	}
+
 	public static readonly string kPlatformsChildOfLevelName = "Level";
 
 	private static bool IsPartOfLevel(GameObject gameObject)
