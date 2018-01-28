@@ -20,12 +20,14 @@ public class ActionHandler : MonoBehaviour
 	private float _resetTimer = 0;
 	private IAction _currentAction;
 	private Color _defaultColor;
+	private SpriteRenderer m_Renderer;
     private int _player;	
 
 	// Use this for initialization
 	void Start ()
 	{
-		_defaultColor = GetComponent<SpriteRenderer>().color;
+		m_Renderer = GetComponentInChildren<SpriteRenderer>();
+		_defaultColor = m_Renderer.color;
 	}
 	
 	// Update is called once per frame
@@ -89,12 +91,12 @@ public class ActionHandler : MonoBehaviour
 			ActionList[i].GetComponent<IAction>().Reset();
 		}
 		
-		GetComponent<SpriteRenderer>().color = _defaultColor;
+		m_Renderer.color = _defaultColor;
 	}
 
 	void PassAction()
 	{
-		GetComponent<SpriteRenderer>().color = Color.green;
+		m_Renderer.color = Color.green;
 		for (int i = 0; i < ActionOnUnlock.Length; i++)
 		{
 			ActionOnUnlock[i].GetComponent<IOnUnlock>().OnUnlock();
@@ -107,20 +109,20 @@ public class ActionHandler : MonoBehaviour
 		_resetTimer = 0;
 		_currentAction = null;
 		_shouldReset = true;
-		GetComponent<SpriteRenderer>().color = Color.red;
+		m_Renderer.color = Color.red;
 	}
 
 	public void StartInteract(int player)
 	{
 		_canInteract = true;
         _player = player;
-		GetComponent<SpriteRenderer>().color = Color.yellow;
+		m_Renderer.color = Color.yellow;
 	}
 
 	public void StopInteract()
 	{
 		_canInteract = false;
         _player = -1;
-		GetComponent<SpriteRenderer>().color = _defaultColor;
+		m_Renderer.color = _defaultColor;
 	}
 }
