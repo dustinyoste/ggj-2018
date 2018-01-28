@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 699b94b7d11164c09abbfbd5fb9486bf
+timeCreated: 1517127447
+licenseType: Pro
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - LevelData: {fileID: 11400000, guid: d7671213113884312bf116957198cb98, type: 2}
+  - BackgroundCanvas: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
