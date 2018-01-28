@@ -3801,7 +3801,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a63fe997cd38243b9b3b8b78823ba44c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Buddy: {fileID: 401170431}
+  Buddy: {fileID: 1793654507}
   actionHandler: {fileID: 339461675}
   speechBubble: {fileID: 1370359127}
   canUpdate: 1
@@ -15897,7 +15897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a63fe997cd38243b9b3b8b78823ba44c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Buddy: {fileID: 401170431}
+  Buddy: {fileID: 339461673}
   actionHandler: {fileID: 1793654509}
   speechBubble: {fileID: 133361039}
   canUpdate: 1
