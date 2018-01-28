@@ -55,7 +55,15 @@ public class InteractiveBlock : MonoBehaviour
 
 	void Item_ActionUIEvent(ActionHandler.ActionType type)
 	{
-		var shouldShow = type == ActionHandler.ActionType.Start;
-		speechBubble.ToggleLayer(shouldShow);
+		switch (type)
+		{
+			case ActionHandler.ActionType.Start:
+				speechBubble.ToggleLayer(true);
+				break;
+			case ActionHandler.ActionType.End:
+			case ActionHandler.ActionType.Pass:
+				speechBubble.ToggleLayer(false);
+				break;
+		}
 	}
 }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Permissions;
 using NUnit.Framework.Constraints;
+using NUnit.Framework.Interfaces;
 using UnityEngine;
 using UnityStandardAssets._2D;
 using UnityStandardAssets.CrossPlatformInput;
@@ -58,22 +59,15 @@ public class ActionHandler : MonoBehaviour
 			if (_resetTimer > resetTime) {
 				ResetActions();
 			}
-		} else if (_canInteract && LockedComponent.IsLocked) {
+		} else if (_canInteract && LockedComponent.IsLocked)
+		{	
 			if (CrossPlatformInputManager.GetButtonDown("Interact" + _player)) {
 				StartAction();
 			} else if (CrossPlatformInputManager.GetButtonUp("Interact" + _player) && _currentAction != null) {
 				_currentAction.EndAction();
-				var invokeEvent = ActionUIEvent;
-				if (invokeEvent != null) {
-					invokeEvent(ActionType.End);
-				}
 			}
 		} else if (!_canInteract && _currentAction != null) {
 			_currentAction.EndAction();
-			var invokeEvent = ActionUIEvent;
-			if (invokeEvent != null) {
-				invokeEvent(ActionType.End);
-			}
 		}
 
 		if (_currentAction != null && _currentAction.HasRun) {
@@ -89,10 +83,6 @@ public class ActionHandler : MonoBehaviour
 		var actionObject = ActionList[_actionListIndex];
 		_currentAction = actionObject.GetComponent<IAction>();
 		_currentAction.StartAction();
-		var invokeEvent = ActionUIEvent;
-		if (invokeEvent != null) {
-			invokeEvent(ActionType.Start);
-		}
 	}
 
 	void GoToNextAction()
@@ -124,6 +114,11 @@ public class ActionHandler : MonoBehaviour
 		GameController gameController;
 		if (GameController.TryGetInstance(out gameController)) {
 			gameController.CompleteAction();
+		}
+		
+		var invokeEvent = ActionUIEvent;
+		if (invokeEvent != null) {
+			invokeEvent(ActionType.Pass);
 		}
 
 		if (SuccessSound != null)
@@ -159,11 +154,6 @@ public class ActionHandler : MonoBehaviour
 			_audioSource.clip = FailSound;
 			_audioSource.Play();	
 		}
-
-		var invokeEvent = ActionUIEvent;
-		if (invokeEvent != null) {
-			invokeEvent(ActionType.Fail);
-		}
 	}
 
 	public void StartInteract(int player)
@@ -171,6 +161,14 @@ public class ActionHandler : MonoBehaviour
 		_canInteract = true;
 		_player = player;
 		m_Renderer.color = Color.yellow;
+
+		if (LockedComponent.IsLocked)
+		{
+			var invokeEvent = ActionUIEvent;
+			if (invokeEvent != null) {
+				invokeEvent(ActionType.Start);
+			}
+		}
 	}
 
 	public void StopInteract()
@@ -178,5 +176,12 @@ public class ActionHandler : MonoBehaviour
 		_canInteract = false;
 		_player = -1;
 		m_Renderer.color = _defaultColor;
+		
+	
+		var invokeEvent = ActionUIEvent;
+		if (invokeEvent != null) {
+			invokeEvent(ActionType.End);
+		}
+
 	}
 }
