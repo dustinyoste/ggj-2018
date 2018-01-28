@@ -57,7 +57,7 @@ public class InteractiveBlock : MonoBehaviour
 	{
 		switch (type)
 		{
-			case ActionHandler.ActionType.Start:
+			case ActionHandler.ActionType.InitInteraction:
 				speechBubble.ToggleLayer(true);
 				break;
 			case ActionHandler.ActionType.End:

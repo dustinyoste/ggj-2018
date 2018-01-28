@@ -13,6 +13,7 @@ public class ActionHandler : MonoBehaviour
 {
 	public enum ActionType
 	{
+		InitInteraction,
 		Start,
 		End,
 		Next,
@@ -87,6 +88,11 @@ public class ActionHandler : MonoBehaviour
 		var actionObject = ActionList[_actionListIndex];
 		_currentAction = actionObject;
 		_currentAction.StartAction();
+
+		var invokeEvent = ActionUIEvent;
+		if (invokeEvent != null) {
+			invokeEvent(ActionType.Start);
+		}
 	}
 
 	void GoToNextAction()
@@ -170,7 +176,7 @@ public class ActionHandler : MonoBehaviour
 		{
 			var invokeEvent = ActionUIEvent;
 			if (invokeEvent != null) {
-				invokeEvent(ActionType.Start);
+				invokeEvent(ActionType.InitInteraction);
 			}
 		}
 	}

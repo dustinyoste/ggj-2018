@@ -9,6 +9,7 @@ public class ActionControlsUI : MonoBehaviour
 	public PlatformerCharacter2D playerWithUI;
 
 	private bool m_IsShowing;
+
 	public bool IsShowing
 	{
 		get { return m_IsShowing; }
@@ -23,13 +24,13 @@ public class ActionControlsUI : MonoBehaviour
 	{
 		var lockedColliders = FindObjectsOfType<OnLockedCollider>();
 		foreach (var l in lockedColliders) {
-			l.ShowLockedEvent += L_ShowLockedEvent;
+			l.ShowLockedEvent += OnLockedBoxCollide;
 		}
 
 		MovementControlsUI.ToggleCanvasGroup(controlsCanvas, false);
 	}
 
-	void L_ShowLockedEvent(OnLockedCollider collider, PlatformerCharacter2D player, bool enter)
+	void OnLockedBoxCollide(OnLockedCollider collider, PlatformerCharacter2D player, bool enter)
 	{
 		if (playerWithUI != player)
 			return;
@@ -40,13 +41,18 @@ public class ActionControlsUI : MonoBehaviour
 
 		transform.position = m_MainCamera.WorldToScreenPoint(collider.block.transform.position) + labelOffset;
 
-		collider.actionHandler.ActionUIEvent += ActionHandler_ActionUIEvent;
+		if (enter) {
+			collider.actionHandler.ActionUIEvent += ActionHandler_ActionUIEvent;
+		} else {
+			collider.actionHandler.ActionUIEvent -= ActionHandler_ActionUIEvent;
+		}
+		Debug.Log("OnLockedBoxCollide");
 	}
-
 
 	void ActionHandler_ActionUIEvent(ActionHandler.ActionType type)
 	{
-		var shouldHide = type == ActionHandler.ActionType.Start;
+		var shouldHide = type == ActionHandler.ActionType.Start || type == ActionHandler.ActionType.Pass;
 		MovementControlsUI.ToggleCanvasGroup(controlsCanvas, !shouldHide);
+		Debug.LogFormat("ActionHandler_ActionUIEvent shouldHide:{0} type:{1}", shouldHide, type);
 	}
 }
