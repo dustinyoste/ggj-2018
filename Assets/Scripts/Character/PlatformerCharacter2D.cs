@@ -24,7 +24,9 @@ public class PlatformerCharacter2D : MonoBehaviour
     public GameObject touchingObject;
     public bool isPusher;
 
-    public float health = 10;
+    public float startingHealth = 10;
+    private float health;
+    public CheckPoint currentCheckPoint;
 
 	[Header("Graphics")]
 	public SkeletonAnimation skeletonAnimation;
@@ -42,8 +44,10 @@ public class PlatformerCharacter2D : MonoBehaviour
 	[SpineAnimation(dataField: "skeletonAnimation")]
 	public string crouchName = "Crouch";
 
+
     private void Awake()
     {
+        health = startingHealth;
         m_GroundCheck = transform.Find("GroundCheck");
         m_CeilingCheck = transform.Find("CeilingCheck");
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -64,9 +68,9 @@ public class PlatformerCharacter2D : MonoBehaviour
                 m_Grounded = true;
             }
         }
-        
+    
         if (health < 0) {
-            // do player dead
+            Die();
         }
     }
 
@@ -158,6 +162,11 @@ public class PlatformerCharacter2D : MonoBehaviour
                 touchingObject.GetComponent<InteractiveBlock>().BeingMovedByPlayer(false);
             }
         }
+    }
+
+    private void Die() {
+        health = startingHealth;
+        transform.position = currentCheckPoint.transform.position;
     }
 
     public void TakeDamage(float dmg) {
