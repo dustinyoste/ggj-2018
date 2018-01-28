@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
@@ -7,12 +8,13 @@ public class Action : MonoBehaviour, IAction
 {
     public float MinKeyDownTime;
     public float MaxKeyDownTime;
+    public AudioClip[] AudioClips;
     public bool HasRun { get; private set; }
     public bool IsSuccess { get; private set; }
 
     private bool _isRunning;
     private Color _defaultColor;
-    
+
     protected float ActionTime;
     protected Transform ProgressTransform;
     protected Color DefaultProgressColor;
@@ -22,7 +24,7 @@ public class Action : MonoBehaviour, IAction
         _defaultColor = GetComponent<Renderer>().sharedMaterial.GetColor("_Color");
         ProgressTransform = transform.Find("ProgressContainer").gameObject.transform;
         DefaultProgressColor = ProgressTransform.Find("Progress").GetComponent<Renderer>().material.GetColor("_Color");
-        
+
         ResetFlags();
         ResetProgress();
     }
@@ -36,13 +38,20 @@ public class Action : MonoBehaviour, IAction
             ShowProgress();
         }
     }
-    
+
     public void StartAction()
     {
         HasRun = false;
         IsSuccess = false;
         _isRunning = true;
         ActionTime = 0;
+
+        var random = new System.Random();
+        var audioClipIndex = random.Next(AudioClips.Length);      
+        var audioSource = GetComponent<AudioSource>();
+        
+        audioSource.clip = AudioClips[audioClipIndex];
+        audioSource.Play();
     }
 
     public void CheckAction()
@@ -66,16 +75,16 @@ public class Action : MonoBehaviour, IAction
         {
             IsSuccess = false;
         }
-        else if(ActionTime > MinKeyDownTime)
+        else if (ActionTime > MinKeyDownTime)
         {
             IsSuccess = true;
         }
 
-        if (IsSuccess) 
+        if (IsSuccess)
             HandleSuccess();
-        else 
+        else
             HandleFailure();
-        
+
         ActionTime = 0;
     }
 
@@ -86,7 +95,7 @@ public class Action : MonoBehaviour, IAction
         ResetFlags();
         ResetProgress();
     }
-    
+
     void ResetFlags()
     {
         HasRun = false;
@@ -107,6 +116,11 @@ public class Action : MonoBehaviour, IAction
         renderer.material.SetColor("_Color", Color.red);
     }
 
-    protected virtual void ShowProgress() {}
-    protected virtual void ResetProgress() {}
+    protected virtual void ShowProgress()
+    {
+    }
+
+    protected virtual void ResetProgress()
+    {
+    }
 }

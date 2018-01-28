@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Permissions;
 using NUnit.Framework.Constraints;
 using UnityEngine;
 using UnityStandardAssets._2D;
@@ -13,6 +14,8 @@ public class ActionHandler : MonoBehaviour
 	public float BufferTime;
 	public float resetTime;
 	public LockedComponent LockedComponent;
+	public AudioClip SuccessSound;
+	public AudioClip FailSound;
 	
 	private int _actionListIndex = 0;
 	private bool _canInteract = false;
@@ -21,12 +24,14 @@ public class ActionHandler : MonoBehaviour
 	private IAction _currentAction;
 	private Color _defaultColor;
 	private SpriteRenderer m_Renderer;
+	private AudioSource _audioSource;
     private int _player;	
 
 	// Use this for initialization
 	void Start ()
 	{
 		m_Renderer = GetComponentInChildren<SpriteRenderer>();
+		_audioSource = GetComponent<AudioSource>();
 		_defaultColor = m_Renderer.color;
 	}
 	
@@ -97,6 +102,9 @@ public class ActionHandler : MonoBehaviour
 	void PassAction()
 	{
 		m_Renderer.color = Color.green;
+		_audioSource.clip = SuccessSound;
+		_audioSource.Play();
+	
 		for (int i = 0; i < ActionOnUnlock.Length; i++)
 		{
 			ActionOnUnlock[i].GetComponent<IOnUnlock>().OnUnlock();
@@ -110,6 +118,8 @@ public class ActionHandler : MonoBehaviour
 		_currentAction = null;
 		_shouldReset = true;
 		m_Renderer.color = Color.red;
+		_audioSource.clip = FailSound;
+		_audioSource.Play();
 	}
 
 	public void StartInteract(int player)
