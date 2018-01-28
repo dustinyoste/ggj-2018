@@ -49,6 +49,12 @@ public class PlatformerCharacter2D : MonoBehaviour
         m_GroundCheck = transform.Find("GroundCheck");
         m_CeilingCheck = transform.Find("CeilingCheck");
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
+
+
+        var blocks = GameObject.FindGameObjectsWithTag("Block");
+        foreach (GameObject block in blocks) {
+            Physics2D.IgnoreCollision(block.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        }
     }
     
     private void Update()
@@ -113,20 +119,10 @@ public class PlatformerCharacter2D : MonoBehaviour
             var blockLock = touchingObject.GetComponent<LockedComponent>();
             if (blockLock != null && !blockLock.IsLocked)
             {
-                if (m_Rigidbody2D.velocity.x > 0)
-                {
-                    if (m_FacingRight && isPusher) {
-                        movingBlock = true;
-                    } else if (!m_FacingRight && isPuller) {
-                        movingBlock = true;
-                    }
-                }
-                else if (m_Rigidbody2D.velocity.x < 0) {
-                    if (m_FacingRight && isPuller) {
-                        movingBlock = true;
-                    } else if (!m_FacingRight && isPusher) {
-                        movingBlock = true;
-                    }
+                if (m_Rigidbody2D.velocity.x > 0 && isPusher) {
+                    movingBlock = true;
+                } else if (m_Rigidbody2D.velocity.x < 0 && isPuller) {
+                    movingBlock = true;
                 }
             }
         } else { // handle flipping facing direction if not grabbing
