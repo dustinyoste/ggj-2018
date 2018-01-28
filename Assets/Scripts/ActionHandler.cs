@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using NUnit.Framework.Constraints;
 using UnityEngine;
 using UnityStandardAssets._2D;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class ActionHandler : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class ActionHandler : MonoBehaviour
 	private float _resetTimer = 0;
 	private IAction _currentAction;
 	private Color _defaultColor;
-	
+    private int _player;	
 
 	// Use this for initialization
 	void Start ()
@@ -41,11 +42,12 @@ public class ActionHandler : MonoBehaviour
 		}
 		else if (_canInteract)
 		{
-			if (Input.GetKeyDown(KeyCode.LeftShift))
+
+            if(CrossPlatformInputManager.GetButtonDown("Interact"+_player))
 			{
 				StartAction();
 			}
-			else if (Input.GetKeyUp(KeyCode.LeftShift) && _currentAction != null)
+			else if (CrossPlatformInputManager.GetButtonUp("Interact"+_player) && _currentAction != null)
 			{
 				_currentAction.EndAction();
 			}
@@ -108,15 +110,17 @@ public class ActionHandler : MonoBehaviour
 		GetComponent<SpriteRenderer>().color = Color.red;
 	}
 
-	public void StartInteract()
+	public void StartInteract(int player)
 	{
 		_canInteract = true;
+        _player = player;
 		GetComponent<SpriteRenderer>().color = Color.yellow;
 	}
 
 	public void StopInteract()
 	{
 		_canInteract = false;
+        _player = -1;
 		GetComponent<SpriteRenderer>().color = _defaultColor;
 	}
 }
