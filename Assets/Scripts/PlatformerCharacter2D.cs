@@ -129,13 +129,6 @@ public class PlatformerCharacter2D : MonoBehaviour
                         movingBlock = true;
                     }
                 }
-
-                if (movingBlock) {
-                    touchingObject.GetComponent<Rigidbody2D>().velocity = m_Rigidbody2D.velocity;
-                    touchingObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
-                } else {
-                    touchingObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
-                }
             }
         } else {
             if (move > 0 && !m_FacingRight) {
@@ -144,6 +137,15 @@ public class PlatformerCharacter2D : MonoBehaviour
             } else if (move < 0 && m_FacingRight) {
 				skeletonAnimation.Skeleton.FlipX = !skeletonAnimation.Skeleton.FlipX;
 				m_FacingRight = !m_FacingRight;
+            }
+        }
+
+        if (touchingObject != null) {
+            if (movingBlock) {
+                touchingObject.GetComponent<Rigidbody2D>().velocity = m_Rigidbody2D.velocity;
+                touchingObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+            } else {
+                touchingObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
             }
         }
     }
