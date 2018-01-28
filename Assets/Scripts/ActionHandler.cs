@@ -31,22 +31,26 @@ public class ActionHandler : MonoBehaviour
 	public AudioClip SuccessSound;
 	public AudioClip FailSound;
 
+	[SerializeField]
+	private SpriteRenderer m_Graphic;
+
 	private int _actionListIndex = 0;
 	private bool _canInteract = false;
 	private bool _shouldReset = false;
 	private float _resetTimer = 0;
 	private IAction _currentAction;
 	private Color _defaultColor;
-	private SpriteRenderer m_Renderer;
 	private AudioSource _audioSource;
 	private int _player;
 
 	// Use this for initialization
 	void Start()
 	{
-		m_Renderer = GetComponentInChildren<SpriteRenderer>();
+		if (m_Graphic == null) {
+			m_Graphic = GetComponentInChildren<SpriteRenderer>();
+		}
 		_audioSource = GetComponent<AudioSource>();
-		_defaultColor = m_Renderer.color;
+		_defaultColor = m_Graphic.color;
 	}
 
 	// Update is called once per frame
@@ -111,14 +115,14 @@ public class ActionHandler : MonoBehaviour
 			ActionList[i].GetComponent<IAction>().Reset();
 		}
 
-		m_Renderer.color = _defaultColor;
+		m_Graphic.color = _defaultColor;
 	}
 
 	void PassAction()
 	{
 		Debug.LogFormat("{0} passes its action", name);
 
-		m_Renderer.color = Color.green;
+		m_Graphic.color = Color.green;
 		LockedComponent.Unlock();
 
 		GameController gameController;
@@ -152,7 +156,7 @@ public class ActionHandler : MonoBehaviour
 		_resetTimer = 0;
 		_currentAction = null;
 		_shouldReset = true;
-		m_Renderer.color = Color.red;
+		m_Graphic.color = Color.red;
 
 		if (FailSound != null)
 		{
@@ -170,13 +174,13 @@ public class ActionHandler : MonoBehaviour
 	{
 		_canInteract = true;
 		_player = player;
-		m_Renderer.color = Color.yellow;
+		m_Graphic.color = Color.yellow;
 	}
 
 	public void StopInteract()
 	{
 		_canInteract = false;
 		_player = -1;
-		m_Renderer.color = _defaultColor;
+		m_Graphic.color = _defaultColor;
 	}
 }
