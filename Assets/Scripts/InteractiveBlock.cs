@@ -8,6 +8,8 @@ public class InteractiveBlock : MonoBehaviour
 	public ActionHandler actionHandler;
 	public LayerRenderer speechBubble;
 
+	public bool canUpdate = true;
+
 	private bool isBeingMovedByPlayer;
 	private bool isBeingMovedByBuddy;
 
@@ -36,6 +38,9 @@ public class InteractiveBlock : MonoBehaviour
 
 	private void FixedUpdate()
 	{
+		if (!canUpdate)
+			return;
+		
 		if (isBeingMovedByBuddy || isBeingMovedByPlayer) {
 			GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
 		} else {
