@@ -108,40 +108,43 @@ public class PlatformerCharacter2D : MonoBehaviour
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce)); // Add a vertical force to the player.
         }
 
+        // If the input is moving the player right and the player is facing left...
         var movingBlock = false;
         if (grabbing && touchingObject != null) {
             var blockScript = touchingObject.GetComponent<BlockScript>();
-            if (blockScript != null && !blockScript.IsLocked) {
-                if (m_Rigidbody2D.velocity.x > 0 && isPusher) {
-                    touchingObject.GetComponent<Rigidbody2D>().velocity = m_Rigidbody2D.velocity;
-                    movingBlock = true;
-                } else if (m_Rigidbody2D.velocity.x < 0 && isPuller) {
-                    touchingObject.GetComponent<Rigidbody2D>().velocity = m_Rigidbody2D.velocity;
-                    movingBlock = true;
+            if (blockScript != null && !blockScript.IsLocked)
+            {
+                if (m_Rigidbody2D.velocity.x > 0)
+                {
+                    if (m_FacingRight && isPusher) {
+                        movingBlock = true;
+                    } else if (!m_FacingRight && isPuller) {
+                        movingBlock = true;
+                    }
+                }
+                else if (m_Rigidbody2D.velocity.x < 0) {
+                    if (m_FacingRight && isPuller) {
+                        movingBlock = true;
+                    } else if (!m_FacingRight && isPusher) {
+                        movingBlock = true;
+                    }
                 }
 
                 if (movingBlock) {
+                    touchingObject.GetComponent<Rigidbody2D>().velocity = m_Rigidbody2D.velocity;
                     touchingObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
                 } else {
                     touchingObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
                 }
             }
-        }
-
-        if (!grabbing) { 
-			// If the input is moving the player right and the player is facing left...
-            if (move > 0 && !m_FacingRight)
-			{
+        } else {
+            if (move > 0 && !m_FacingRight) {
+				skeletonAnimation.Skeleton.FlipX = !skeletonAnimation.Skeleton.FlipX;
+				m_FacingRight = !m_FacingRight;
+            } else if (move < 0 && m_FacingRight) {
 				skeletonAnimation.Skeleton.FlipX = !skeletonAnimation.Skeleton.FlipX;
 				m_FacingRight = !m_FacingRight;
             }
-            // Otherwise if the input is moving the player left and the player is facing right...
-            else if (move < 0 && m_FacingRight)
-			{
-				skeletonAnimation.Skeleton.FlipX = !skeletonAnimation.Skeleton.FlipX;
-				m_FacingRight = !m_FacingRight;
-            }
-
         }
     }
 
