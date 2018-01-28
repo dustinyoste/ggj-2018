@@ -9,6 +9,7 @@ public class PlayerInGameUI : MonoBehaviour
 	public CanvasGroup controlsCanvas;
 	public float showControlsDelayIncrement = 3f;
 	public float showControlsDelayMax = 12f;
+	public BlockInGameUI blockUI;
 
 	private SimpleTimer playerTimer;
 	private float currentShowControlsDelay;
@@ -70,6 +71,8 @@ public class PlayerInGameUI : MonoBehaviour
 
 	void PlayerTimeEvent()
 	{
+		if (blockUI.IsShowing)
+			return;
 		NewTimer();
 		ToggleCanvasGroup(controlsCanvas, true);
 	}

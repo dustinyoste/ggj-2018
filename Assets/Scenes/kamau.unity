@@ -214,6 +214,7 @@ MonoBehaviour:
   controlsCanvas: {fileID: 70254097}
   showControlsDelayIncrement: 3
   showControlsDelayMax: 12
+  blockUI: {fileID: 1066926629}
 --- !u!225 &70254097
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1575,6 +1576,7 @@ MonoBehaviour:
   controlsCanvas: {fileID: 1569479070}
   showControlsDelayIncrement: 5
   showControlsDelayMax: 20
+  blockUI: {fileID: 362098172}
 --- !u!225 &1569479070
 CanvasGroup:
   m_ObjectHideFlags: 0

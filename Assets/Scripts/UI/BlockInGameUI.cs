@@ -8,6 +8,14 @@ public class BlockInGameUI : MonoBehaviour
 	public Vector3 labelOffset = new Vector3(0f, 40f, 0f);
 	public PlatformerCharacter2D playerWithUI;
 
+	private bool m_IsShowing;
+	public bool IsShowing{
+		get { return m_IsShowing; }
+		private set{
+			m_IsShowing = value;
+		}
+	}
+
 	// Use this for initialization
 	void Start()
 	{
@@ -25,6 +33,8 @@ public class BlockInGameUI : MonoBehaviour
 			return;
 		
 		PlayerInGameUI.ToggleCanvasGroup(controlsCanvas, enter);
+
+		m_IsShowing = enter;
 
 		transform.position = m_MainCamera.WorldToScreenPoint(collider.block.transform.position) + labelOffset;
 	}
