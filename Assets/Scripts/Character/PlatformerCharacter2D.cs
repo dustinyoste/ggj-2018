@@ -149,6 +149,7 @@ public class PlatformerCharacter2D : MonoBehaviour
     private void Die() {
         health = startingHealth;
         transform.position = currentCheckPoint.transform.position;
+		Debug.LogFormat("You died {0}", name);
     }
 
     public void TakeDamage(float dmg) {
