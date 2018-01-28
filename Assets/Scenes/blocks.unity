@@ -395,6 +395,7 @@ MonoBehaviour:
   LockedComponent: {fileID: 289262889}
   SuccessSound: {fileID: 8300000, guid: e885484e1bc99fb47a0ac3f6bfa586b1, type: 3}
   FailSound: {fileID: 8300000, guid: 532e417ffa3f95747908419a00be3780, type: 3}
+  m_Graphic: {fileID: 786773896}
 --- !u!114 &289262891
 MonoBehaviour:
   m_ObjectHideFlags: 0

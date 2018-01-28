@@ -19,10 +19,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4296652597828388}
-  - component: {fileID: 61532394832944530}
   - component: {fileID: 114612440688135298}
   - component: {fileID: 114206428920253678}
   - component: {fileID: 50386576833527408}
+  - component: {fileID: 70003239629856366}
   m_Layer: 0
   m_Name: Cody
   m_TagString: Player
@@ -69,10 +69,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4325907554907188}
-  - component: {fileID: 61230832842710452}
   - component: {fileID: 50683192436768492}
   - component: {fileID: 114666503029582454}
   - component: {fileID: 114894521140057432}
+  - component: {fileID: 70253692425668892}
   m_Layer: 0
   m_Name: Morris
   m_TagString: Player
@@ -437,33 +437,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &61230832842710452
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1223747470127938}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.25}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1.5}
-  m_EdgeRadius: 0
---- !u!61 &61532394832944530
-BoxCollider2D:
+--- !u!70 &70003239629856366
+CapsuleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -474,19 +449,24 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.25}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1.5}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0, y: 0.2}
+  m_Size: {x: 0.5, y: 1.5}
+  m_Direction: 0
+--- !u!70 &70253692425668892
+CapsuleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1223747470127938}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.2}
+  m_Size: {x: 0.5, y: 1.5}
+  m_Direction: 0
 --- !u!114 &114111872380570636
 MonoBehaviour:
   m_ObjectHideFlags: 1
