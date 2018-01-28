@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlockScript : MonoBehaviour, IOnUnlock
+public class InteractiveBlock : MonoBehaviour, IOnUnlock
 {
 	public GameObject Buddy;
 	public bool IsLocked = true;
@@ -47,9 +47,9 @@ public class BlockScript : MonoBehaviour, IOnUnlock
 			var velocity = GetComponent<Rigidbody2D>().velocity;
 			if (velocity.magnitude > 0.00 && !isBeingMovedByBuddy) {
 				Buddy.GetComponent<Rigidbody2D>().velocity = velocity;
-				Buddy.GetComponent<BlockScript>().BeingMovedByBuddy(true);
+				Buddy.GetComponent<InteractiveBlock>().BeingMovedByBuddy(true);
 			} else {
-				Buddy.GetComponent<BlockScript>().BeingMovedByBuddy(false);
+				Buddy.GetComponent<InteractiveBlock>().BeingMovedByBuddy(false);
 			}
 		}
 	}

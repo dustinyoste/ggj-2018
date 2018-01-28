@@ -117,7 +117,7 @@ public class PlatformerCharacter2D : MonoBehaviour
         // If the input is moving the player right and the player is facing left...
         var movingBlock = false;
         if (grabbing && touchingObject != null) {
-            var blockScript = touchingObject.GetComponent<BlockScript>();
+            var blockScript = touchingObject.GetComponent<InteractiveBlock>();
             if (blockScript != null && !blockScript.IsLocked)
             {
                 if (m_Rigidbody2D.velocity.x > 0)
@@ -148,14 +148,14 @@ public class PlatformerCharacter2D : MonoBehaviour
 
         if (touchingObject != null) {
             if (movingBlock) {
-                var blockBuddy = touchingObject.GetComponent<BlockScript>().Buddy;
-                if (blockBuddy && blockBuddy.GetComponent<BlockScript>().IsLocked) {
+                var blockBuddy = touchingObject.GetComponent<InteractiveBlock>().Buddy;
+                if (blockBuddy && blockBuddy.GetComponent<InteractiveBlock>().IsLocked) {
                     return;
                 }
-                touchingObject.GetComponent<BlockScript>().BeingMovedByPlayer(true);
+                touchingObject.GetComponent<InteractiveBlock>().BeingMovedByPlayer(true);
                 touchingObject.GetComponent<Rigidbody2D>().velocity = m_Rigidbody2D.velocity;
             } else {
-                touchingObject.GetComponent<BlockScript>().BeingMovedByPlayer(false);
+                touchingObject.GetComponent<InteractiveBlock>().BeingMovedByPlayer(false);
             }
         }
     }
