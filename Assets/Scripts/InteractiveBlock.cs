@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractiveBlock : MonoBehaviour, IOnUnlock
+public class InteractiveBlock : MonoBehaviour
 {
 	public GameObject Buddy;
-	public bool IsLocked = true;
 	public ActionHandler actionHandler;
 	public LayerRenderer speechBubble;
 
@@ -52,11 +51,6 @@ public class InteractiveBlock : MonoBehaviour, IOnUnlock
 				Buddy.GetComponent<InteractiveBlock>().BeingMovedByBuddy(false);
 			}
 		}
-	}
-
-	public void OnUnlock()
-	{
-		IsLocked = false;
 	}
 
 	void Item_ActionUIEvent(ActionHandler.ActionType type)
