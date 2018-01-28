@@ -1202,6 +1202,11 @@ Prefab:
       propertyPath: isPuller
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 33565197795491678, guid: 9a7dadbad5f384a8e874ad57420ed5bb,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 9a7dadbad5f384a8e874ad57420ed5bb, type: 2}
@@ -1417,6 +1422,16 @@ Prefab:
     - target: {fileID: 114755407504372322, guid: 9a7dadbad5f384a8e874ad57420ed5bb,
         type: 2}
       propertyPath: isPusher
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 33565197795491678, guid: 9a7dadbad5f384a8e874ad57420ed5bb,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114097128978873526, guid: 9a7dadbad5f384a8e874ad57420ed5bb,
+        type: 2}
+      propertyPath: player
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
