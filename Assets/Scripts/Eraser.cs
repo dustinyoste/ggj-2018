@@ -26,7 +26,7 @@ public class Eraser : MonoBehaviour
 
 		tempPos = posOffset;
 		tempPos.y += Mathf.Sin(Time.fixedTime * Mathf.PI * frequency) * amplitude;
-		tempPos.x += transform.position.x + (speedForward/10 * Time.fixedTime);
+		tempPos.x += transform.position.x + (speedForward * Time.deltaTime);
 
 		transform.position = tempPos;
 	}

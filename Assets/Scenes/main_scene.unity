@@ -351,7 +351,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4183699558192328, guid: 2b07202f1e00d4b23bc88ec3658a920c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.35
+      value: -1.36
       objectReference: {fileID: 0}
     - target: {fileID: 4183699558192328, guid: 2b07202f1e00d4b23bc88ec3658a920c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2165,7 +2165,7 @@ Transform:
   m_GameObject: {fileID: 227311153}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_Children: []
   m_Father: {fileID: 1361647382}
   m_RootOrder: 4
@@ -9893,7 +9893,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 25a6ab312a1d84cbd89dfad7fd6d4bb8, type: 3}
+  m_audioClip: {fileID: 8300000, guid: dc6d2e6d5ef3c4de78b9db341829c7d4, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -10024,7 +10024,7 @@ MonoBehaviour:
   degreesPerSecond: 15
   amplitude: 4.5
   frequency: 1
-  speedForward: 0.002
+  speedForward: 2
   gameOverTimerCountDown: 3
 --- !u!212 &1078153499
 SpriteRenderer:
