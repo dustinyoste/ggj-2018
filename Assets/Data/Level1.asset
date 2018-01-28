@@ -13,5 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneToLoad: 
   sections:
+  - numActionsToHit: 1
+    spriteToShow: {fileID: 21300000, guid: f0a0c9226b6a24ca8b741135e448af68, type: 3}
   - numActionsToHit: 5
     spriteToShow: {fileID: 21300000, guid: bcb290cc4657a40e286973516354c2ac, type: 3}
