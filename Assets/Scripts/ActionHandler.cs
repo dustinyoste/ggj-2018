@@ -118,6 +118,7 @@ public class ActionHandler : MonoBehaviour
 	{
 		m_Renderer.color = Color.green;
 		LockedComponent.Unlock();
+		GameController.Instance.CompleteAction();
 
 		if (SuccessSound != null)
 		{
