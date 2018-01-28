@@ -9,6 +9,19 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class ActionHandler : MonoBehaviour
 {
+	public enum ActionType
+	{
+		Start,
+		End,
+		Next,
+		Reset,
+		Fail,
+		Pass
+	}
+
+	public delegate void ActionUIHandler(ActionType type);
+	public event ActionUIHandler ActionUIEvent;
+
 	public GameObject[] ActionList;
 	public GameObject[] ActionOnUnlock;
 	public float BufferTime;
@@ -16,7 +29,7 @@ public class ActionHandler : MonoBehaviour
 	public LockedComponent LockedComponent;
 	public AudioClip SuccessSound;
 	public AudioClip FailSound;
-	
+
 	private int _actionListIndex = 0;
 	private bool _canInteract = false;
 	private bool _shouldReset = false;
@@ -25,49 +38,49 @@ public class ActionHandler : MonoBehaviour
 	private Color _defaultColor;
 	private SpriteRenderer m_Renderer;
 	private AudioSource _audioSource;
-    private int _player;	
+	private int _player;
 
 	// Use this for initialization
-	void Start ()
+	void Start()
 	{
 		m_Renderer = GetComponentInChildren<SpriteRenderer>();
 		_audioSource = GetComponent<AudioSource>();
 		_defaultColor = m_Renderer.color;
 	}
-	
+
 	// Update is called once per frame
-	void Update ()
+	void Update()
 	{
-		if (_shouldReset)
-		{
+		if (_shouldReset) {
 			_resetTimer += Time.deltaTime;
 
-			if (_resetTimer > resetTime)
-			{
+			if (_resetTimer > resetTime) {
 				ResetActions();
 			}
-		}
-		else if (_canInteract && LockedComponent.IsLocked)
-		{
+		} else if (_canInteract && LockedComponent.IsLocked) {
 
-            if(CrossPlatformInputManager.GetButtonDown("Interact"+_player))
-			{
+			if (CrossPlatformInputManager.GetButtonDown("Interact" + _player)) {
 				StartAction();
-			}
-			else if (CrossPlatformInputManager.GetButtonUp("Interact"+_player) && _currentAction != null)
-			{
+			} else if (CrossPlatformInputManager.GetButtonUp("Interact" + _player) && _currentAction != null) {
 				_currentAction.EndAction();
+				var invokeEvent = ActionUIEvent;
+				if (invokeEvent != null) {
+					invokeEvent(ActionType.End);
+				}
+			}
+		} else if (!_canInteract && _currentAction != null) {
+			_currentAction.EndAction();
+			var invokeEvent = ActionUIEvent;
+			if (invokeEvent != null) {
+				invokeEvent(ActionType.End);
 			}
 		}
-		else if(!_canInteract && _currentAction != null)
-		{
-			_currentAction.EndAction();	
-		}
-		
-		if (_currentAction != null && _currentAction.HasRun)
-		{
+
+		if (_currentAction != null && _currentAction.HasRun) {
 			if (_currentAction.IsSuccess) GoToNextAction();
-			else FailAction();
+			else {
+				FailAction();
+			}
 		}
 	}
 
@@ -76,13 +89,16 @@ public class ActionHandler : MonoBehaviour
 		var actionObject = ActionList[_actionListIndex];
 		_currentAction = actionObject.GetComponent<IAction>();
 		_currentAction.StartAction();
+		var invokeEvent = ActionUIEvent;
+		if (invokeEvent != null) {
+			invokeEvent(ActionType.Start);
+		}
 	}
 
 	void GoToNextAction()
 	{
 		_currentAction = null;
-		if (++_actionListIndex == ActionList.Length)
-		{
+		if (++_actionListIndex == ActionList.Length) {
 			PassAction();
 		}
 	}
@@ -91,11 +107,10 @@ public class ActionHandler : MonoBehaviour
 	{
 		_shouldReset = false;
 		_resetTimer = 0;
-		for (int i = 0; i < ActionList.Length; i++)
-		{
+		for (int i = 0; i < ActionList.Length; i++) {
 			ActionList[i].GetComponent<IAction>().Reset();
 		}
-		
+
 		m_Renderer.color = _defaultColor;
 	}
 
@@ -105,9 +120,8 @@ public class ActionHandler : MonoBehaviour
 		_audioSource.clip = SuccessSound;
 		_audioSource.Play();
 		LockedComponent.Unlock();
-	
-		for (int i = 0; i < ActionOnUnlock.Length; i++)
-		{
+
+		for (int i = 0; i < ActionOnUnlock.Length; i++) {
 			ActionOnUnlock[i].GetComponent<IOnUnlock>().OnUnlock();
 		}
 	}
@@ -121,19 +135,24 @@ public class ActionHandler : MonoBehaviour
 		m_Renderer.color = Color.red;
 		_audioSource.clip = FailSound;
 		_audioSource.Play();
+
+		var invokeEvent = ActionUIEvent;
+		if (invokeEvent != null) {
+			invokeEvent(ActionType.Fail);
+		}
 	}
 
 	public void StartInteract(int player)
 	{
 		_canInteract = true;
-        _player = player;
+		_player = player;
 		m_Renderer.color = Color.yellow;
 	}
 
 	public void StopInteract()
 	{
 		_canInteract = false;
-        _player = -1;
+		_player = -1;
 		m_Renderer.color = _defaultColor;
 	}
 }

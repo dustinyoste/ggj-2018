@@ -9,9 +9,11 @@ public class BlockInGameUI : MonoBehaviour
 	public PlatformerCharacter2D playerWithUI;
 
 	private bool m_IsShowing;
-	public bool IsShowing{
+	public bool IsShowing
+	{
 		get { return m_IsShowing; }
-		private set{
+		private set
+		{
 			m_IsShowing = value;
 		}
 	}
@@ -31,11 +33,20 @@ public class BlockInGameUI : MonoBehaviour
 	{
 		if (playerWithUI != player)
 			return;
-		
+
 		PlayerInGameUI.ToggleCanvasGroup(controlsCanvas, enter);
 
 		m_IsShowing = enter;
 
 		transform.position = m_MainCamera.WorldToScreenPoint(collider.block.transform.position) + labelOffset;
+
+		collider.actionHandler.ActionUIEvent += ActionHandler_ActionUIEvent;
+	}
+
+
+	void ActionHandler_ActionUIEvent(ActionHandler.ActionType type)
+	{
+		var shouldHide = type == ActionHandler.ActionType.Start;
+		PlayerInGameUI.ToggleCanvasGroup(controlsCanvas, !shouldHide);
 	}
 }
