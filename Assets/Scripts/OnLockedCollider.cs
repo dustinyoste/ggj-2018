@@ -1,5 +1,4 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 
 [DisallowMultipleComponent]
 [RequireComponent(typeof(BoxCollider2D))]
@@ -21,11 +20,13 @@ public class OnLockedCollider : MonoBehaviour
 	protected void OnTriggerEnter2D(Collider2D coll)
 	{
 		var player = coll.GetComponent<PlatformerCharacter2D>();
-		if (player == null)
+		if (player == null) {
 			return;
+        }
 
-		if (!lockedObject.IsLocked)
+		if (!lockedObject.IsLocked) {
 			return;
+        }
 
 		// Show the UI
 		var invokeEvent = ShowLockedEvent;
@@ -35,7 +36,8 @@ public class OnLockedCollider : MonoBehaviour
 
 		// Allow interactablility
 		if (actionHandler) {
-			actionHandler.StartInteract();
+            var playerControl = coll.GetComponent<Platformer2DUserControl>();
+			actionHandler.StartInteract(playerControl.player);
 		}
 
         player.TouchingObject(this.block);
@@ -44,11 +46,13 @@ public class OnLockedCollider : MonoBehaviour
 	protected void OnTriggerExit2D(Collider2D coll)
 	{
 		var player = coll.GetComponent<PlatformerCharacter2D>();
-		if (player == null)
+		if (player == null) {
 			return;
+        }
 
-		if (!lockedObject.IsLocked)
+		if (!lockedObject.IsLocked) {
 			return;
+        }
 
 		// Show the UI
 		var invokeEvent = ShowLockedEvent;
