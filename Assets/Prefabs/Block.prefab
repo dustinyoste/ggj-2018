@@ -463,7 +463,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MinKeyDownTime: 2
   MaxKeyDownTime: 2.5
-  AudioClips: []
+  AudioClips:
+  - {fileID: 8300000, guid: b2e07d700658c4c03aa65f259f4e98e9, type: 3}
+  - {fileID: 8300000, guid: 661d533c2d0ee4f9e8fd50f6cf8888a9, type: 3}
+  - {fileID: 8300000, guid: 69a74c122f45d40438cc523f97b0a9cf, type: 3}
+  - {fileID: 8300000, guid: 3b564caecbfde4841a6185cfc230753d, type: 3}
+  - {fileID: 8300000, guid: 6944feb9b62ca4738905a572dabe9212, type: 3}
 --- !u!114 &114406186048506164
 MonoBehaviour:
   m_ObjectHideFlags: 1

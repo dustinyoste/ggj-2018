@@ -47,7 +47,7 @@ public class ActionHandler : MonoBehaviour
 				ResetActions();
 			}
 		}
-		else if (_canInteract)
+		else if (_canInteract && LockedComponent.IsLocked)
 		{
 
             if(CrossPlatformInputManager.GetButtonDown("Interact"+_player))
@@ -104,6 +104,7 @@ public class ActionHandler : MonoBehaviour
 		m_Renderer.color = Color.green;
 		_audioSource.clip = SuccessSound;
 		_audioSource.Play();
+		LockedComponent.Unlock();
 	
 		for (int i = 0; i < ActionOnUnlock.Length; i++)
 		{
