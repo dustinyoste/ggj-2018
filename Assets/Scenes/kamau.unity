@@ -727,18 +727,15 @@ Prefab:
       propertyPath: m_player
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 212426557242916524, guid: 9a7dadbad5f384a8e874ad57420ed5bb,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 212426557242916524, guid: 9a7dadbad5f384a8e874ad57420ed5bb,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: m_Color.g
       value: 0.4705882
       objectReference: {fileID: 0}
-    - target: {fileID: 212426557242916524, guid: 9a7dadbad5f384a8e874ad57420ed5bb,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: m_Color.b
       value: 0.4705882
       objectReference: {fileID: 0}
@@ -2015,19 +2012,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 33565197795491678, guid: 9a7dadbad5f384a8e874ad57420ed5bb,
-        type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1173051146634548, guid: 9a7dadbad5f384a8e874ad57420ed5bb, type: 2}
       propertyPath: m_Name
       value: Morris
       objectReference: {fileID: 0}
-    - target: {fileID: 114097128978873526, guid: 9a7dadbad5f384a8e874ad57420ed5bb,
+    - target: {fileID: 33565197795491678, guid: 9a7dadbad5f384a8e874ad57420ed5bb,
         type: 2}
-      propertyPath: player
-      value: 1
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9a7dadbad5f384a8e874ad57420ed5bb, type: 2}
