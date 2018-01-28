@@ -10,7 +10,7 @@ public class PlatformerCharacter2D : MonoBehaviour
     [SerializeField] private LayerMask m_WhatIsGround; // A mask determining what is ground to the character
 
     private Transform m_GroundCheck;
-    const float k_GroundedRadius = 1; // Radius of the overlap circle to determine if grounded
+    const float k_GroundedRadius = 2; // Radius of the overlap circle to determine if grounded
     public bool m_Grounded;
     private Transform m_CeilingCheck;   // A position marking where to check for ceilings
     const float k_CeilingRadius = .01f; // Radius of the overlap circle to determine if the player can stand up
