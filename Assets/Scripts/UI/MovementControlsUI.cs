@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [DisallowMultipleComponent]
-public class PlayerInGameUI : MonoBehaviour
+public class MovementControlsUI : MonoBehaviour
 {
 	public PlatformerCharacter2D character;
 	public bool playerHasInput = true;
@@ -9,7 +9,7 @@ public class PlayerInGameUI : MonoBehaviour
 	public CanvasGroup controlsCanvas;
 	public float showControlsDelayIncrement = 3f;
 	public float showControlsDelayMax = 12f;
-	public BlockInGameUI blockUI;
+	public ActionControlsUI blockUI;
 
 	private SimpleTimer playerTimer;
 	private float currentShowControlsDelay;

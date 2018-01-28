@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [DisallowMultipleComponent]
-public class BlockInGameUI : MonoBehaviour
+public class ActionControlsUI : MonoBehaviour
 {
 	public Camera m_MainCamera;
 	public CanvasGroup controlsCanvas;
@@ -26,7 +26,7 @@ public class BlockInGameUI : MonoBehaviour
 			l.ShowLockedEvent += L_ShowLockedEvent;
 		}
 
-		PlayerInGameUI.ToggleCanvasGroup(controlsCanvas, false);
+		MovementControlsUI.ToggleCanvasGroup(controlsCanvas, false);
 	}
 
 	void L_ShowLockedEvent(OnLockedCollider collider, PlatformerCharacter2D player, bool enter)
@@ -34,7 +34,7 @@ public class BlockInGameUI : MonoBehaviour
 		if (playerWithUI != player)
 			return;
 
-		PlayerInGameUI.ToggleCanvasGroup(controlsCanvas, enter);
+		MovementControlsUI.ToggleCanvasGroup(controlsCanvas, enter);
 
 		m_IsShowing = enter;
 
@@ -47,6 +47,6 @@ public class BlockInGameUI : MonoBehaviour
 	void ActionHandler_ActionUIEvent(ActionHandler.ActionType type)
 	{
 		var shouldHide = type == ActionHandler.ActionType.Start;
-		PlayerInGameUI.ToggleCanvasGroup(controlsCanvas, !shouldHide);
+		MovementControlsUI.ToggleCanvasGroup(controlsCanvas, !shouldHide);
 	}
 }
