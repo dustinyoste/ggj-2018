@@ -24,6 +24,8 @@ public class PlatformerCharacter2D : MonoBehaviour
     public GameObject touchingObject;
     public bool isPusher;
 
+    public float health = 10;
+
 	[Header("Graphics")]
 	public SkeletonAnimation skeletonAnimation;
     public bool isPuller;
@@ -61,6 +63,10 @@ public class PlatformerCharacter2D : MonoBehaviour
             if (colliders[i].gameObject != gameObject) {
                 m_Grounded = true;
             }
+        }
+        
+        if (health < 0) {
+            // do player dead
         }
     }
 
@@ -142,12 +148,20 @@ public class PlatformerCharacter2D : MonoBehaviour
 
         if (touchingObject != null) {
             if (movingBlock) {
+                var blockBuddy = touchingObject.GetComponent<BlockScript>().Buddy;
+                if (blockBuddy && blockBuddy.GetComponent<BlockScript>().IsLocked) {
+                    return;
+                }
                 touchingObject.GetComponent<BlockScript>().BeingMovedByPlayer(true);
                 touchingObject.GetComponent<Rigidbody2D>().velocity = m_Rigidbody2D.velocity;
             } else {
                 touchingObject.GetComponent<BlockScript>().BeingMovedByPlayer(false);
             }
         }
+    }
+
+    public void TakeDamage(float dmg) {
+        health -= dmg;
     }
 
     public void TouchingObject(GameObject obj) {

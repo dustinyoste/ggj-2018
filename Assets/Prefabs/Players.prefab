@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 50965545232099008}
   m_Layer: 0
   m_Name: Cody
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 114491116083785826}
   m_Layer: 0
   m_Name: Morris
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -601,6 +601,7 @@ MonoBehaviour:
   m_Grounded: 0
   touchingObject: {fileID: 0}
   isPusher: 1
+  health: 10
   skeletonAnimation: {fileID: 114563534418527054}
   isPuller: 0
   walkName: Walk
@@ -671,6 +672,7 @@ MonoBehaviour:
   m_Grounded: 0
   touchingObject: {fileID: 0}
   isPusher: 0
+  health: 10
   skeletonAnimation: {fileID: 114486798692003396}
   isPuller: 1
   walkName: Walk
