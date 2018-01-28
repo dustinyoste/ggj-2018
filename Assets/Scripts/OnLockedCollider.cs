@@ -24,6 +24,8 @@ public class OnLockedCollider : MonoBehaviour
 		if (player == null)
 			return;
 
+		player.TouchingObject(this.block);
+		
 		if (!lockedObject.IsLocked)
 			return;
 
@@ -38,8 +40,6 @@ public class OnLockedCollider : MonoBehaviour
 			var playerControl = coll.GetComponent<Platformer2DUserControl>();
 			actionHandler.StartInteract(playerControl.player);
 		}
-
-        player.TouchingObject(this.block);
 	}
 
 	protected void OnTriggerExit2D(Collider2D coll)
