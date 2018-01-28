@@ -60,6 +60,22 @@ public class BlockHelper : MonoBehaviour
 		}
 	}
 
+	[MenuItem("MorseBuilder/MakeBuddy", false, 23)]
+	static void MakeBlocksBuddies(MenuCommand cmd)
+	{
+		GameObject[] gameObjects = Selection.gameObjects;
+		if (gameObjects.Length != 2)
+			return;
+		foreach (var item in gameObjects) {
+			if (item.GetComponent<InteractiveBlock>() == null)
+				return;
+		}
+		var block1 = gameObjects[0].GetComponent<InteractiveBlock>();
+		var block2 = gameObjects[1].GetComponent<InteractiveBlock>();
+		block1.Buddy = block2.gameObject;
+		block2.Buddy = block1.gameObject;
+	}
+
 	public static readonly string kPlatformsChildOfLevelName = "Level";
 
 	public static bool IsPartOfLevel(GameObject gameObject)
