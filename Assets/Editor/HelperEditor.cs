@@ -6,9 +6,9 @@ public class HelperEditor
 	[MenuItem("Cheat/UnlockAll", false, 21)]
 	static void UnlockAllLockedComponents()
 	{
-		LockedComponent[] objs = Resources.FindObjectsOfTypeAll<LockedComponent>();
-		foreach (LockedComponent obj in objs) {
-			obj.Unlock();
+		ActionHandler[] objs = Resources.FindObjectsOfTypeAll<ActionHandler>();
+		foreach (ActionHandler obj in objs) {
+			obj.SendMessage("PassAction", SendMessageOptions.DontRequireReceiver);
 		}
 	}
 }

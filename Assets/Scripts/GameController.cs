@@ -67,7 +67,9 @@ public class GameController : MonoBehaviour
 			}
 		}
 
-		BackgroundCanvas.GetComponentInChildren<Image>().sprite = newSection.spriteToShow;
+		if (BackgroundCanvas != null) {
+			BackgroundCanvas.GetComponentInChildren<Image>().sprite = newSection.spriteToShow;
+		}
 	}
 
 	#endregion

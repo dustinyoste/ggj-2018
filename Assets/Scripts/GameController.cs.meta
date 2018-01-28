@@ -1,11 +1,13 @@
 fileFormatVersion: 2
 guid: 699b94b7d11164c09abbfbd5fb9486bf
-timeCreated: 1517114447
+timeCreated: 1517127447
 licenseType: Pro
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - LevelData: {fileID: 11400000, guid: d7671213113884312bf116957198cb98, type: 2}
+  - BackgroundCanvas: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

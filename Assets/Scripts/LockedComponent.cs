@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class LockedComponent : MonoBehaviour, ILockable
 {
-	#region  ILockable
+	#region ILockable
+
 	[SerializeField]
 	private bool _locked = true;
 
 	public bool Unlock()
 	{
+		Debug.LogFormat("Unlocking {0}", name);
 		return _locked = false;
 	}
 

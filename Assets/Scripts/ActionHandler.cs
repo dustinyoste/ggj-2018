@@ -116,9 +116,15 @@ public class ActionHandler : MonoBehaviour
 
 	void PassAction()
 	{
+		Debug.LogFormat("{0} passes its action", name);
+
 		m_Renderer.color = Color.green;
 		LockedComponent.Unlock();
-		GameController.Instance.CompleteAction();
+
+		GameController gameController;
+		if (GameController.TryGetInstance(out gameController)) {
+			gameController.CompleteAction();
+		}
 
 		if (SuccessSound != null)
 		{
