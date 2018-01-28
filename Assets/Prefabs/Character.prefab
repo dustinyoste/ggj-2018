@@ -264,7 +264,7 @@ MonoBehaviour:
   calculateTangents: 0
   logErrors: 0
   disableRenderingOnOverride: 1
-  _animationName: walk
+  _animationName: idle
   loop: 1
   timeScale: 1
 --- !u!114 &114097128978873526
@@ -300,10 +300,11 @@ MonoBehaviour:
   m_Grounded: 0
   touchingObject: {fileID: 0}
   isPusher: 0
+  health: 10
   skeletonAnimation: {fileID: 114093714471801602}
   isPuller: 0
-  walkName: Walk
+  walkName: walk
   runName: Run
-  idleName: Idle
-  jumpName: Jump
-  crouchName: Crouch
+  idleName: idle
+  jumpName: jump
+  actionName: push pull

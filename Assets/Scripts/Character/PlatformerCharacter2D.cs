@@ -34,15 +34,15 @@ public class PlatformerCharacter2D : MonoBehaviour
 
 	[Header("Animation")]
 	[SpineAnimation(dataField: "skeletonAnimation")]
-	public string walkName = "Walk";
+	public string walkName = "walk";
 	[SpineAnimation(dataField: "skeletonAnimation")]
-	public string runName = "Run";
+	public string runName = "run";
 	[SpineAnimation(dataField: "skeletonAnimation")]
-	public string idleName = "Idle";
+	public string idleName = "idle";
 	[SpineAnimation(dataField: "skeletonAnimation")]
-	public string jumpName = "Jump";
+	public string jumpName = "jump";
 	[SpineAnimation(dataField: "skeletonAnimation")]
-	public string crouchName = "Crouch";
+	public string actionName = "action";
 
 
     private void Awake()
@@ -78,7 +78,11 @@ public class PlatformerCharacter2D : MonoBehaviour
     {
 		if (move != 0 || jump) {
 			skeletonAnimation.loop = true;
-			skeletonAnimation.AnimationName = walkName;
+			if(grabbing){
+				skeletonAnimation.AnimationName = actionName;
+			}else{
+				skeletonAnimation.AnimationName = walkName;
+			}
             if (m_Idling) {
                 var idleEvent = PlayerIdleEvent;
                 if (idleEvent != null) {
@@ -86,7 +90,9 @@ public class PlatformerCharacter2D : MonoBehaviour
                     m_Idling = false;
                 }
             }
-        } else if (!m_Idling) {
+		} else if (!m_Idling) {
+			skeletonAnimation.loop = true;
+			skeletonAnimation.AnimationName = idleName;
             var idleEvent = PlayerIdleEvent;
             if (idleEvent != null) {
                 PlayerIdleEvent(true);
@@ -96,9 +102,6 @@ public class PlatformerCharacter2D : MonoBehaviour
 
         if (m_Grounded || m_AirControl)
         {
-            // The Speed animator parameter is set to the absolute value of the horizontal input.
-            //m_Anim.SetFloat("Speed", Mathf.Abs(move));
-
             // Move the character
             m_Rigidbody2D.velocity = new Vector2(move * m_MaxSpeed, m_Rigidbody2D.velocity.y);
 
@@ -116,6 +119,8 @@ public class PlatformerCharacter2D : MonoBehaviour
             //m_Anim.SetBool("Ground", false);
             m_Grounded = false;
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce)); // Add a vertical force to the player.
+			skeletonAnimation.loop = false;
+			skeletonAnimation.AnimationName = jumpName;
         }
 
         // If the input is moving the player right and the player is facing left...
