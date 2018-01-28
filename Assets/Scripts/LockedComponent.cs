@@ -5,22 +5,21 @@ using UnityEngine;
 public class LockedComponent : MonoBehaviour, ILockable
 {
 	#region  ILockable
+	[SerializeField]
+	private bool _locked = true;
 
 	public bool Unlock()
 	{
-		return locked = false;
+		return _locked = false;
 	}
 
 	public bool IsLocked
 	{
 		get
 		{
-			return locked;
+			return _locked;
 		}
 	}
 
 	#endregion
-
-	[SerializeField]
-	private bool locked = true;
 }

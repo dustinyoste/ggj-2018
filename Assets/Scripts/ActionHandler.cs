@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityStandardAssets._2D;
 using UnityStandardAssets.CrossPlatformInput;
 
+[RequireComponent(typeof(AudioSource))]
 public class ActionHandler : MonoBehaviour
 {
 	public enum ActionType
@@ -58,7 +59,6 @@ public class ActionHandler : MonoBehaviour
 				ResetActions();
 			}
 		} else if (_canInteract && LockedComponent.IsLocked) {
-
 			if (CrossPlatformInputManager.GetButtonDown("Interact" + _player)) {
 				StartAction();
 			} else if (CrossPlatformInputManager.GetButtonUp("Interact" + _player) && _currentAction != null) {

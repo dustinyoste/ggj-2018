@@ -195,11 +195,11 @@ MonoBehaviour:
   MinKeyDownTime: 2
   MaxKeyDownTime: 2.5
   AudioClips:
-  - {fileID: 8300000, guid: b2e07d700658c4c03aa65f259f4e98e9, type: 3}
-  - {fileID: 8300000, guid: 661d533c2d0ee4f9e8fd50f6cf8888a9, type: 3}
-  - {fileID: 8300000, guid: 69a74c122f45d40438cc523f97b0a9cf, type: 3}
-  - {fileID: 8300000, guid: 3b564caecbfde4841a6185cfc230753d, type: 3}
-  - {fileID: 8300000, guid: 6944feb9b62ca4738905a572dabe9212, type: 3}
+  - {fileID: 8300000, guid: ec688bad33eb94dd0a9d8943f94f7e2a, type: 3}
+  - {fileID: 8300000, guid: d48aeb0fb4f6b42e49e5ca3d63b5472d, type: 3}
+  - {fileID: 8300000, guid: 5afdf7d6ab4794e7a8b9869dbafb9bec, type: 3}
+  - {fileID: 8300000, guid: 26d0d1655a9ac47d281f1dc0c7df5127, type: 3}
+  - {fileID: 8300000, guid: 62334fc85c1d04635a7e98f870440ac8, type: 3}
 --- !u!212 &212760141877726054
 SpriteRenderer:
   m_ObjectHideFlags: 1
