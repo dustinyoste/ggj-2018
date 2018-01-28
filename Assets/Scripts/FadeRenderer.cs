@@ -5,8 +5,8 @@ using UnityEngine;
 public class FadeRenderer : MonoBehaviour
 {
 	private SpriteRenderer sprite;
-    private float gameWidth = 20;
-    private Transform camera;
+    private float gameWidth = 10;
+	private Transform m_camera;
     public int pictureLevel;
 
     const int totalPics = 6;
@@ -15,7 +15,7 @@ public class FadeRenderer : MonoBehaviour
 		sprite = GetComponent<SpriteRenderer>();
         
         // if convenient grab camera here, else it's public and optimize adding in editor, prob same with sprite ¯\_(ツ)_/¯
-        //camera = GameObject.FindGameObjectWithTag("MainCamera").transform;
+		m_camera = GameObject.FindGameObjectWithTag("MainCamera").transform;
     }
 
 	void Start() {
@@ -24,7 +24,7 @@ public class FadeRenderer : MonoBehaviour
     public void FixedUpdate() {
         Color tmp = sprite.color;
 
-        var cameraPos = camera.transform.position.x;
+        var cameraPos = m_camera.transform.position.x;
         if (cameraPos <= 0) {
             if (pictureLevel == 1) {
                 tmp.a = 1;
