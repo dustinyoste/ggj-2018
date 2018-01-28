@@ -39,11 +39,13 @@ public class BlockWindow : EditorWindow
 				GameObject line = BlockHelper.CreatePrefabEditor("Assets/Prefabs/ActionElementLine.prefab");
 				PrefabUtility.DisconnectPrefabInstance(line);
 				line.transform.SetParent(speechBubble.transform);
+				line.transform.localPosition = Vector3.zero;
 				actions.Add(line.GetComponent<Action>());
 			} else if (item == '*') {
 				GameObject dot = BlockHelper.CreatePrefabEditor("Assets/Prefabs/ActionElementDot.prefab");
 				PrefabUtility.DisconnectPrefabInstance(dot);
 				dot.transform.SetParent(speechBubble.transform);
+				dot.transform.localPosition = Vector3.zero;
 				actions.Add(dot.GetComponent<Action>());
 			}
 		}
